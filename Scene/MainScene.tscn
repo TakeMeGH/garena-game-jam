@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_hss2r"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_7b45c"]
-[ext_resource type="PackedScene" uid="uid://dxh7qlm5r04w" path="res://jump_pad.tscn" id="3_nl3p6"]
-[ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://dash_pad.tscn" id="4_37u5l"]
+[ext_resource type="PackedScene" uid="uid://b7c8wl1m07r64" path="res://jump_pad.tscn" id="3_nl3p6"]
+[ext_resource type="PackedScene" uid="uid://dqj58hrh3fyjf" path="res://dash_pad.tscn" id="4_37u5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6wv8"]
 size = Vector2(126.3, 127.2)
@@ -22,7 +22,6 @@ scale = Vector2(42.5264, 0.821488)
 texture = ExtResource("2_7b45c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_d6wv8")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -33,7 +32,6 @@ scale = Vector2(42.5264, 0.821488)
 texture = ExtResource("2_7b45c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_d6wv8")
 
 [node name="Node2D" parent="." instance=ExtResource("3_nl3p6")]

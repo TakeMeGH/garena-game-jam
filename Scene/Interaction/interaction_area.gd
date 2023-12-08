@@ -9,4 +9,4 @@ var interact: Callable = func():
 
 
 func _on_body_entered(body):
-	await interact.call()
+	await interact.call(body)
