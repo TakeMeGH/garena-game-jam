@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://x7bikx1k7hu1"]
+
+[ext_resource type="Script" path="res://Scene/TownHall/TownHall.gd" id="1_cjmd3"]
+
+[node name="TownHall" type="Node2D"]
+script = ExtResource("1_cjmd3")
