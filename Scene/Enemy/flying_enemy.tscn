@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://wq7u1ks6bw26"]
+
+[ext_resource type="Script" path="res://flying_enemy.gd" id="1_jau6p"]
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_61qvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78oae"]
+size = Vector2(128, 129)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jau6p")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_61qvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_78oae")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+
+[node name="spawn_point" type="Node2D" parent="CharacterBody2D"]
+position = Vector2(-1, 89)

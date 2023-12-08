@@ -15,6 +15,7 @@ script = ExtResource("1_be56b")
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_555t1")
+jump = 1000
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-4, 0)

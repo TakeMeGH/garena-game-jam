@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg673o6q7pdot"]
+[gd_scene load_steps=8 format=3 uid="uid://bg673o6q7pdot"]
 
 [ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_hss2r"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_7b45c"]
-[ext_resource type="PackedScene" uid="uid://b7c8wl1m07r64" path="res://jump_pad.tscn" id="3_nl3p6"]
-[ext_resource type="PackedScene" uid="uid://dqj58hrh3fyjf" path="res://dash_pad.tscn" id="4_37u5l"]
+[ext_resource type="PackedScene" uid="uid://dxh7qlm5r04w" path="res://Scene/Prefab/jump_pad.tscn" id="3_nl3p6"]
+[ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://Scene/Prefab/dash_pad.tscn" id="4_37u5l"]
+[ext_resource type="PackedScene" uid="uid://wq7u1ks6bw26" path="res://Scene/Enemy/flying_enemy.tscn" id="5_ctr7e"]
+[ext_resource type="PackedScene" uid="uid://bkmdorreyamq0" path="res://Scene/Prefab/enemy_bullet.tscn" id="6_dcuus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6wv8"]
 size = Vector2(126.3, 127.2)
@@ -12,11 +14,13 @@ size = Vector2(126.3, 127.2)
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_hss2r")]
 position = Vector2(3, 14)
-scale = Vector2(1.02085, 1)
+scale = Vector2(1.10584, 1.00651)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-6, 295)
 scale = Vector2(42.5264, 0.821488)
+collision_layer = 255
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("2_7b45c")
@@ -27,6 +31,8 @@ shape = SubResource("RectangleShape2D_d6wv8")
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(3521, 1341)
 scale = Vector2(42.5264, 0.821488)
+collision_layer = 255
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
 texture = ExtResource("2_7b45c")
@@ -34,11 +40,17 @@ texture = ExtResource("2_7b45c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_d6wv8")
 
-[node name="Node2D" parent="." instance=ExtResource("3_nl3p6")]
+[node name="jump_pad" parent="." instance=ExtResource("3_nl3p6")]
 position = Vector2(3363, 1207)
 scale = Vector2(8.9561, 4.8)
 
-[node name="Node2D2" parent="." instance=ExtResource("4_37u5l")]
+[node name="dash_pad" parent="." instance=ExtResource("4_37u5l")]
 position = Vector2(515, 194)
 scale = Vector2(4.34309, 4.08)
 dash_speed = 100
+
+[node name="flying" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ctr7e")]
+position = Vector2(-1380, -412)
+player = NodePath("../MainCharacter")
+bullet = ExtResource("6_dcuus")
+speed = 800.0
