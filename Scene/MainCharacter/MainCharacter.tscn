@@ -10,6 +10,7 @@ height = 124.0
 [node name="MainCharacter" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 3
 script = ExtResource("1_555t1")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

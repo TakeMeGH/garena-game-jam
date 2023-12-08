@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxh7qlm5r04w"]
+
+[ext_resource type="Script" path="res://jump_pad.gd" id="1_m63hc"]
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_vjt4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egptl"]
+size = Vector2(20, 10)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m63hc")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.15625, 0.078125)
+texture = ExtResource("1_vjt4a")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_egptl")
