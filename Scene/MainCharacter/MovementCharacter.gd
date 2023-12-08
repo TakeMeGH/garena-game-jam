@@ -8,6 +8,7 @@ extends CharacterBody2D
 var curr_speed : float= 0
 var speed_lerp : float = 0
 var jump_amount = 2
+var can_move : bool = true
 
 func get_input(delta):
 	var input_direction = Input.get_axis("left", "right")
@@ -31,7 +32,12 @@ func get_input(delta):
 	velocity.x = curr_speed
 
 func _physics_process(delta):
+	if can_move:
+		moving(delta)
 	
+	move_and_slide()
+	
+func moving(delta):
 	if !is_on_floor():
 		velocity.y += gravity
 		if velocity.y > 1000:
@@ -48,7 +54,6 @@ func _physics_process(delta):
 		jump_amount -= 1
 	
 	get_input(delta)
-	move_and_slide()
 	
 func force_jump(jump_force):
 	velocity.y = -jump_force * jump
@@ -57,3 +62,7 @@ func force_dash(dash_force):
 	if(curr_speed != 0):
 		curr_speed += (curr_speed / abs(curr_speed)) * dash_force
 		print(curr_speed)
+
+func slow_down():
+	curr_speed = 0
+	velocity = Vector2(0,0)
