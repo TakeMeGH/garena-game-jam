@@ -11,8 +11,8 @@ size = Vector2(126.3, 127.2)
 [node name="MainCharacter" parent="." instance=ExtResource("1_hss2r")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-6, 295)
-scale = Vector2(42.5264, 0.821488)
+position = Vector2(-17, 300)
+scale = Vector2(13.12, 0.76)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("2_7b45c")
