@@ -20,9 +20,9 @@ func get_input(delta):
 	if !Input.is_action_pressed("slide"):
 		if !is_on_floor():
 			if(input_direction != 0):
-				curr_speed += input_direction * speed * delta
-				curr_speed = min(curr_speed, max_speed)
-				curr_speed = max(curr_speed, -max_speed)
+				curr_speed += input_direction * speed * 0.5
+				curr_speed = min(curr_speed, speed)
+				curr_speed = max(curr_speed, -speed)
 			else:
 				curr_speed -= velocity.normalized().x * 10
 		else:
@@ -52,3 +52,8 @@ func _physics_process(delta):
 	
 func force_jump(jump_force):
 	velocity.y = -jump_force * jump
+
+func force_dash(dash_force):
+	if(curr_speed != 0):
+		curr_speed += (curr_speed / abs(curr_speed)) * dash_force
+		print(curr_speed)

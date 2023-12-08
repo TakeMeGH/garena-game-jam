@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg673o6q7pdot"]
+[gd_scene load_steps=6 format=3 uid="uid://bg673o6q7pdot"]
 
 [ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_hss2r"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_7b45c"]
 [ext_resource type="PackedScene" uid="uid://dxh7qlm5r04w" path="res://jump_pad.tscn" id="3_nl3p6"]
+[ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://dash_pad.tscn" id="4_37u5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6wv8"]
 size = Vector2(126.3, 127.2)
@@ -11,6 +12,7 @@ size = Vector2(126.3, 127.2)
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_hss2r")]
 position = Vector2(3, 14)
+scale = Vector2(1.02085, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-6, 295)
@@ -37,3 +39,8 @@ shape = SubResource("RectangleShape2D_d6wv8")
 [node name="Node2D" parent="." instance=ExtResource("3_nl3p6")]
 position = Vector2(3363, 1207)
 scale = Vector2(8.9561, 4.8)
+
+[node name="Node2D2" parent="." instance=ExtResource("4_37u5l")]
+position = Vector2(515, 194)
+scale = Vector2(4.34309, 4.08)
+dash_speed = 100
