@@ -15,7 +15,6 @@ func _ready():
 func _physics_process(delta):
 	#print(len(area.get_overlapping_bodies())
 	if(len(area.get_overlapping_bodies()) > 0) && !enable:
-		print("Tripped!")
 		anim.play("landmine")
 		await area.get_overlapping_bodies()[0].force_push(position - Vector2(0,-100), 1000)
 		sprite.visible = true
