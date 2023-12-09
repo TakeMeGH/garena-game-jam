@@ -3,13 +3,35 @@ class_name MainCharacter
 
 @onready var hungry_timer = %HungryTimer
 @export var max_wait_time : float = 10;
-@onready var character_movement = $CharacterBody2D
+@onready var character_movement : CharacterBody2D = $CharacterBody2D
+@onready var sprite : Sprite2D = $CharacterBody2D/Sprite2D
+var anim: AnimationPlayer
 signal hungry_timer_timeout
 var base_wait_time : float
 
 func _ready():
 	start_hungry_timer(max_wait_time)
+	anim = get_child(0).get_child(3)
+	anim.play("idle")
 	base_wait_time = max_wait_time
+
+	
+func _process(delta):
+	if Input.get_axis("left", "right") == 1:
+		sprite.flip_h = false;
+		anim.play("running_player")
+	elif Input.get_axis("left", "right") == -1:
+		sprite.flip_h = true;
+		anim.play("running_player")
+	else:
+		anim.play("idle")
+		
+	if !character_movement.is_on_floor():
+		anim.play("isjumping")
+		
+	if abs(character_movement.velocity.x) > 750:
+		anim.play("dash")
+	
 
 func get_time_left():
 	return hungry_timer.time_left

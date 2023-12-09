@@ -52,6 +52,7 @@ step = 0.0
 value = 1.0
 texture_under = ExtResource("6_2jxs4")
 texture_progress = ExtResource("7_rr366")
+metadata/_edit_use_anchors_ = true
 
 [node name="Tower" parent="." instance=ExtResource("1_86mwv")]
 position = Vector2(13, -76)

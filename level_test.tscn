@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bf8nlrm2y0yho"]
+
+[ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_0tgag"]
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_6qqvw"]
+[ext_resource type="PackedScene" uid="uid://dxh7qlm5r04w" path="res://Scene/Prefab/jump_pad.tscn" id="3_xcp6f"]
+[ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://Scene/Prefab/dash_pad.tscn" id="4_v4nxd"]
+[ext_resource type="Texture2D" uid="uid://bn14u7k4hse6j" path="res://Assets/bg/tilemap.png" id="5_2alde"]
+[ext_resource type="PackedScene" uid="uid://demfqnsecjxxl" path="res://Scene/Enemy/landmine_enemy.tscn" id="5_wpi1c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bncyx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnfp3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fgl4"]
+texture = ExtResource("2_6qqvw")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p1xn"]
+texture = ExtResource("5_2alde")
+margins = Vector2i(0, 136)
+texture_region_size = Vector2i(118, 118)
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_0uagu"]
+tile_size = Vector2i(118, 118)
+physics_layer_0/collision_layer = 254
+physics_layer_0/collision_mask = 0
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_bncyx")
+sources/1 = SubResource("TileSetAtlasSource_wnfp3")
+sources/2 = SubResource("TileSetAtlasSource_7fgl4")
+sources/3 = SubResource("TileSetAtlasSource_1p1xn")
+
+[node name="main_level" type="Node2D"]
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_0tgag")]
+position = Vector2(4, -75)
+
+[node name="jump pad" parent="." instance=ExtResource("3_xcp6f")]
+position = Vector2(2543, 758)
+jump_height = 2
+
+[node name="dash pad" parent="." instance=ExtResource("4_v4nxd")]
+position = Vector2(5641, 790)
+
+[node name="dash pad2" parent="." instance=ExtResource("4_v4nxd")]
+position = Vector2(6548, 549)
+
+[node name="dash pad3" parent="." instance=ExtResource("4_v4nxd")]
+position = Vector2(8325, -399)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0uagu")
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(65523, 3, 7, 65524, 3, 7, 65525, 3, 7, 65526, 3, 7, 65527, 3, 7, 65528, 3, 7, 65529, 3, 7, 65530, 3, 7, 65531, 3, 7, 65532, 3, 7, 65533, 3, 7, 65534, 3, 7, 65535, 3, 7, 0, 3, 7, 1, 3, 7, 2, 3, 7, 3, 3, 7, 4, 3, 7, 5, 3, 7, 6, 3, 7, 7, 3, 7, 8, 3, 7, 9, 3, 7, 65519, 3, 7, 65520, 3, 7, 65521, 3, 7, 65522, 3, 7, 10, 3, 7, 11, 3, 7, 12, 3, 7, 13, 3, 7, 14, 3, 7, 15, 3, 7, 16, 3, 7, 17, 3, 7, 18, 3, 7, 19, 3, 7, 458772, 3, 7, 458773, 3, 7, 458774, 3, 7, 458775, 3, 7, 458776, 3, 7, 458777, 3, 7, 458778, 3, 7, 458779, 3, 7, 458792, 3, 7, 458793, 3, 7, 458794, 3, 7, 458795, 3, 7, 458796, 3, 7, 458797, 3, 7, 393244, 3, 7, 393245, 3, 7, 393246, 3, 7, 393247, 3, 7, 393248, 3, 7, 393249, 3, 7, 393250, 3, 7, 393251, 3, 7, 393252, 3, 7, 393253, 3, 7, 393254, 3, 7, 393255, 3, 7, 65582, 3, 7, 458798, 3, 7, 65583, 3, 7, 458799, 3, 7, 65584, 3, 7, 458800, 3, 7, 458801, 3, 7, 458802, 3, 7, 458803, 3, 7, 458804, 3, 7, 458805, 3, 7, 458809, 3, 7, 458810, 3, 7, 458811, 3, 7, 458812, 3, 7, 458813, 3, 7, 327734, 3, 7, 327735, 3, 7, 327736, 3, 7, 131134, 3, 7, 458814, 3, 7, 131135, 3, 7, 458815, 3, 7, 131136, 3, 7, 458816, 3, 7, 458817, 3, 7, 458818, 3, 7, 458819, 3, 7, 458820, 3, 7, 458821, 3, 7, 458822, 3, 7, 458823, 3, 7, 458824, 3, 7, 458825, 3, 7, -196539, 3, 7, -196538, 3, 7, -196537, 3, 7, 458826, 3, 7, 458827, 3, 7, 786508, 3, 7, 786509, 3, 7, 786510, 3, 7, 786511, 3, 7, 786512, 3, 7, 786513, 3, 7, 786514, 3, 7, 786515, 3, 7, 786516, 3, 7, 786517, 3, 7, 786518, 3, 7, 786519, 3, 7, 786520, 3, 7, 786521, 3, 7, 786522, 3, 7, 786523, 3, 7, 786524, 3, 7, 786525, 3, 7, 786526, 3, 7, 786527, 3, 7, 786528, 3, 7, 786529, 3, 7, -393137, 3, 7, -393136, 3, 7, -393135, 3, 7, -393134, 3, 7, -393133, 3, 7, -393132, 3, 7, -393131, 3, 7, -393130, 3, 7, -393129, 3, 7, -393128, 3, 7, -393127, 3, 7, -393126, 3, 7, -393125, 3, 7, -393124, 3, 7, -393123, 3, 7, -393122, 3, 7, -393121, 3, 7, -393120, 3, 7, -393119, 3, 7, -393118, 3, 7, -393117, 3, 7, 786530, 3, 7, 786531, 3, 7, 786532, 3, 7, 786533, 3, 7, 786534, 3, 7, 786535, 3, 7, 458856, 3, 7, 458857, 3, 7, 458858, 3, 7, 458859, 3, 7, 458860, 3, 7, 458861, 3, 7, 458862, 3, 7, 458863, 3, 7, 458864, 3, 7, 458865, 3, 7, 458866, 3, 7, 458867, 3, 7, 458868, 3, 7, 458869, 3, 7, 458870, 3, 7, 458871, 3, 7, 458872, 3, 7, 458873, 3, 7, 458874, 3, 7, 458875, 3, 7, 65512, 3, 7, 65513, 3, 7, 65514, 3, 7, 65515, 3, 7, 65516, 3, 7, 65517, 3, 7, 65518, 3, 7, -65567, 3, 7, -65566, 3, 7, -65565, 3, 7, -65564, 3, 7, 524232, 3, 7, 524239, 3, 7, 524240, 3, 7, 524241, 3, 7, 524242, 3, 7, 524243, 3, 7, 524244, 3, 7, 524251, 3, 7, 524252, 3, 7, 524253, 3, 7, 524254, 3, 7, 524255, 3, 7, 524256, 3, 7, 458711, 3, 7, 458712, 3, 7, 458713, 3, 7, 458714, 3, 7, 458710, 3, 7, 458709, 3, 7, 458697, 3, 7, 458698, 3, 7, 458699, 3, 7, 458700, 3, 7, 458701, 3, 7, 458702, 3, 7, 524227, 3, 7, 524228, 3, 7, 524229, 3, 7, 524230, 3, 7, 524231, 3, 7, 458685, 3, 7, 458686, 3, 7, 458687, 3, 7, 458688, 3, 7, 458689, 3, 7, 458690, 3, 7, 524215, 3, 7, 524216, 3, 7, 524217, 3, 7, 524218, 3, 7, 524219, 3, 7, 524220, 3, 7, -65613, 3, 7, -65612, 3, 7, -65611, 3, 7, -65610, 3, 7, -786493, 3, 7, -786492, 3, 7, -786491, 3, 7, -786490, 3, 7, -786489, 3, 7, -786488, 3, 7, -196657, 3, 7, -196656, 3, 7, -196655, 3, 7, -196654, 3, 7, -196653, 3, 7, -196652, 3, 7, -1638449, 3, 7, -1638448, 3, 7, -1638447, 3, 7, -1638446, 3, 7, -1638445, 3, 7, -1638444, 3, 7, -1638443, 3, 7, -1638442, 3, 7, -1638441, 3, 7, -1638440, 3, 7, -1441865, 3, 7, -1441864, 3, 7, -1441863, 3, 7, -1441862, 3, 7, -1441861, 3, 7, -1441860, 3, 7, -1441859, 3, 7, -1441858, 3, 7, -1441857, 3, 7, -1441856, 3, 7, 65509, 3, 7, 65510, 3, 7, 65511, 3, 7)
+
+[node name="Node2D" parent="." instance=ExtResource("3_xcp6f")]
+position = Vector2(-5486, -547)
+jump_height = 2
+
+[node name="Node2D2" parent="." instance=ExtResource("3_xcp6f")]
+position = Vector2(-4720, 632)
+jump_height = 2
+
+[node name="Node2D3" parent="." instance=ExtResource("3_xcp6f")]
+position = Vector2(-7016, -1612)
+jump_height = 2
+
+[node name="Node2D4" parent="." instance=ExtResource("4_v4nxd")]
+position = Vector2(-7629, -2768)
+
+[node name="landmine_enemy" parent="." instance=ExtResource("5_wpi1c")]
+position = Vector2(352, -67)

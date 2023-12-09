@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://0rotgho2vhvg"]
 
 [ext_resource type="Script" path="res://Scene/Resource/Food/food.gd" id="1_1gkql"]
-[ext_resource type="Texture2D" uid="uid://bjqhyq0jesevc" path="res://Assets/apple.png" id="1_v3pec"]
 [ext_resource type="PackedScene" uid="uid://c13ooui5tsud4" path="res://Scene/Interaction/interaction_area.tscn" id="2_fqb3i"]
+[ext_resource type="Texture2D" uid="uid://3drwiidc0lyf" path="res://Assets/food.png" id="2_t1ab0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mghk"]
 radius = 38.0132
@@ -11,7 +11,8 @@ radius = 38.0132
 script = ExtResource("1_1gkql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_v3pec")
+scale = Vector2(0.715, 0.715)
+texture = ExtResource("2_t1ab0")
 
 [node name="interaction_area" parent="." instance=ExtResource("2_fqb3i")]
 
