@@ -1,13 +1,104 @@
-[gd_scene load_steps=5 format=3 uid="uid://uaitk34vr66s"]
+[gd_scene load_steps=16 format=3 uid="uid://ci34by2ngm3qf"]
 
 [ext_resource type="Script" path="res://succ_enemy.gd" id="1_4tu3i"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_8eo2n"]
+[ext_resource type="Texture2D" uid="uid://b6y6etkxud036" path="res://Assets/magic hat/magic hat_0000.png" id="3_gd7o2"]
+[ext_resource type="Texture2D" uid="uid://ddf5tqlh3oq4v" path="res://Assets/magic hat/magic hat_0003.png" id="4_b4crr"]
+[ext_resource type="Texture2D" uid="uid://fvop865npkwt" path="res://Assets/magic hat/magic hat_0007.png" id="5_5ylfi"]
+[ext_resource type="Texture2D" uid="uid://cty0ljl7xrjpv" path="res://Assets/magic hat/magic hat_0010.png" id="6_u1nw2"]
+[ext_resource type="Texture2D" uid="uid://5qm3tskw5o6l" path="res://Assets/magic hat/magic hat_0015.png" id="7_4bcjw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5p1k"]
 radius = 65.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqjqa"]
 radius = 451.774
+
+[sub_resource type="Animation" id="Animation_pvuxu"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gd7o2")]
+}
+
+[sub_resource type="Animation" id="Animation_fgbra"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8eo2n")]
+}
+
+[sub_resource type="Animation" id="Animation_1ruu2"]
+resource_name = "succ"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_gd7o2"), ExtResource("4_b4crr"), ExtResource("5_5ylfi"), ExtResource("6_u1nw2"), ExtResource("7_4bcjw")]
+}
+
+[sub_resource type="Animation" id="Animation_nv8s5"]
+resource_name = "finish"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_4bcjw"), ExtResource("6_u1nw2"), ExtResource("5_5ylfi"), ExtResource("4_b4crr"), ExtResource("3_gd7o2")]
+}
+
+[sub_resource type="Animation" id="Animation_1k6wa"]
+resource_name = "curr_succ"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_4bcjw")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88ywq"]
+_data = {
+"RESET": SubResource("Animation_fgbra"),
+"curr_succ": SubResource("Animation_1k6wa"),
+"finish": SubResource("Animation_nv8s5"),
+"idle": SubResource("Animation_pvuxu"),
+"succ": SubResource("Animation_1ruu2")
+}
 
 [node name="succ_enemy" type="Node2D"]
 script = ExtResource("1_4tu3i")
@@ -25,3 +116,8 @@ shape = SubResource("CircleShape2D_u5p1k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
 shape = SubResource("CircleShape2D_oqjqa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_88ywq")
+}
