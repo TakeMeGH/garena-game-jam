@@ -8,6 +8,6 @@ script = ExtResource("1_pl001")
 id = "dreamy_digestion"
 name = "Dreamy Digestion"
 description = "Awake from slumber, hunger light"
-effect = "\"Defy gravity, in the air you soar\""
+effect = "\"Reduce hunger effects after player woke up\""
 icon = ExtResource("1_23laf")
 cost = 1

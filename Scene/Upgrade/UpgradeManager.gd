@@ -23,7 +23,8 @@ func get_upgrade(num_of_upgrade):
 	return result_list
 	
 func _on_upgrade_selected(upgrade : AbilityUpgrade):
-	print(upgrade.id)
+	if(upgrade == null):
+		return
 	if(!upgrade_data.has(upgrade.id)):
 		upgrade_data[upgrade.id] = 1
 	else:

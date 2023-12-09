@@ -10,8 +10,6 @@ var is_third_panel_cc = true
 
 signal upgrade_selected(upgrade : AbilityUpgrade)
 
-
-	
 func set_upgrade(upgrade_list : Array[AbilityUpgrade]):
 	first_panel.set_info(upgrade_list[0])
 	if(is_first_panel_cc):
@@ -35,7 +33,9 @@ func set_upgrade(upgrade_list : Array[AbilityUpgrade]):
 	else:
 		third_panel.selected.disconnect(on_upgrade_selected)
 		third_panel.selected.connect(on_upgrade_selected.bind(upgrade_list[2]))
-			
+	
 func on_upgrade_selected(upgrade : AbilityUpgrade):
 	upgrade_selected.emit(upgrade)
-	
+
+func _on_button_pressed():
+	on_upgrade_selected(null)

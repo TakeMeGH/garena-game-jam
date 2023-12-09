@@ -5,9 +5,11 @@ class_name MainCharacter
 @export var max_wait_time : float = 10;
 @onready var character_movement = $CharacterBody2D
 signal hungry_timer_timeout
+var base_wait_time : float
 
 func _ready():
 	start_hungry_timer(max_wait_time)
+	base_wait_time = max_wait_time
 
 func get_time_left():
 	return hungry_timer.time_left
@@ -26,3 +28,20 @@ func _on_hungry_timer_timeout():
 	
 func enable_input(is_enable : bool):
 	character_movement.can_move = is_enable
+	
+func set_movement_speed(count):
+	for i in range(count):
+		character_movement.max_speed *= 115.0 / 100
+		character_movement.speed *= 115.0 / 100
+
+func extend_timer(count):
+	var temp_wait_time : float = base_wait_time
+	for i in range(count):
+		temp_wait_time *= 115.0 / 100
+	max_wait_time = temp_wait_time
+
+func double_jump_enabled():
+	character_movement.jump_amount = 2
+
+#func _process(delta):
+	#print(character_movement.speed, character_movement.max_speed)
