@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://demfqnsecjxxl"]
+
+[ext_resource type="Script" path="res://landmine_enemy.gd" id="1_b5670"]
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_vkulc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rebjq"]
+size = Vector2(129, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grimx"]
+size = Vector2(129, 127)
+
+[node name="landmine_enemy" type="Node2D"]
+script = ExtResource("1_b5670")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+
+[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_vkulc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 65)
+shape = SubResource("RectangleShape2D_rebjq")
+
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_grimx")
