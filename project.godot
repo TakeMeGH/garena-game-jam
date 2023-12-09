@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GarenaGameEngine"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
@@ -22,6 +22,7 @@ Gold="*res://Autoload/Gold/gold.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 
 [dotnet]
 
