@@ -15,23 +15,6 @@
 radius = 60.0
 height = 124.0
 
-[sub_resource type="Animation" id="Animation_8pruu"]
-resource_name = "running_player"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("4_xf07n"), ExtResource("5_io1jt"), ExtResource("6_7q043"), ExtResource("7_kjlai"), ExtResource("8_xd1u7"), ExtResource("9_4q3p5")]
-}
-
 [sub_resource type="Animation" id="Animation_plet6"]
 length = 0.001
 tracks/0/type = "value"
@@ -45,6 +28,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_xcv1n")]
+}
+
+[sub_resource type="Animation" id="Animation_f6id6"]
+resource_name = "dash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_pvpm6")]
 }
 
 [sub_resource type="Animation" id="Animation_qg08e"]
@@ -77,8 +75,10 @@ tracks/0/keys = {
 "values": [ExtResource("5_io1jt")]
 }
 
-[sub_resource type="Animation" id="Animation_f6id6"]
-resource_name = "dash"
+[sub_resource type="Animation" id="Animation_8pruu"]
+resource_name = "running_player"
+length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -86,10 +86,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("10_pvpm6")]
+"values": [ExtResource("4_xf07n"), ExtResource("5_io1jt"), ExtResource("6_7q043"), ExtResource("7_kjlai"), ExtResource("8_xd1u7"), ExtResource("9_4q3p5")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pro8g"]

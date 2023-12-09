@@ -15,23 +15,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78oae"]
 size = Vector2(128, 129)
 
-[sub_resource type="Animation" id="Animation_66gsf"]
-resource_name = "static"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_lytxt"), ExtResource("4_ces63"), ExtResource("5_6fqhv")]
-}
-
 [sub_resource type="Animation" id="Animation_cykvh"]
 length = 0.001
 tracks/0/type = "value"
@@ -62,6 +45,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("6_j6xjm"), ExtResource("7_5kuii"), ExtResource("8_rp65d"), ExtResource("9_3l7xi"), ExtResource("10_twu85"), ExtResource("11_dewne")]
+}
+
+[sub_resource type="Animation" id="Animation_66gsf"]
+resource_name = "static"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_lytxt"), ExtResource("4_ces63"), ExtResource("5_6fqhv")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l1hbq"]
