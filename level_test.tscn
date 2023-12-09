@@ -1,46 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf8nlrm2y0yho"]
+[gd_scene load_steps=7 format=3 uid="uid://bf8nlrm2y0yho"]
 
 [ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_0tgag"]
-[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_6qqvw"]
 [ext_resource type="PackedScene" uid="uid://b7c8wl1m07r64" path="res://Scene/Prefab/jump_pad.tscn" id="3_xcp6f"]
 [ext_resource type="PackedScene" uid="uid://dqj58hrh3fyjf" path="res://Scene/Prefab/dash_pad.tscn" id="4_v4nxd"]
-[ext_resource type="Texture2D" uid="uid://bn14u7k4hse6j" path="res://Assets/bg/tilemap.png" id="5_2alde"]
 [ext_resource type="PackedScene" uid="uid://demfqnsecjxxl" path="res://Scene/Enemy/landmine_enemy.tscn" id="5_wpi1c"]
-[ext_resource type="Texture2D" uid="uid://bxtxgymr83wi4" path="res://Assets/parallux/background.png" id="7_hye0c"]
-[ext_resource type="Texture2D" uid="uid://fs60xe2e4ohn" path="res://Assets/parallux/scenery.png" id="9_tmsqg"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bncyx"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnfp3"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fgl4"]
-texture = ExtResource("2_6qqvw")
-texture_region_size = Vector2i(128, 128)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p1xn"]
-texture = ExtResource("5_2alde")
-margins = Vector2i(0, 136)
-texture_region_size = Vector2i(118, 118)
-0:7/0 = 0
-0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:7/0/physics_layer_0/angular_velocity = 0.0
-0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-59, -59, 59, -59, 59, 59, -59, 59)
-1:7/0 = 0
-1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:7/0/physics_layer_0/angular_velocity = 0.0
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x5j8e"]
 
 [sub_resource type="TileSet" id="TileSet_0uagu"]
 tile_size = Vector2i(118, 118)
 physics_layer_0/collision_layer = 254
 physics_layer_0/collision_mask = 0
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_bncyx")
-sources/1 = SubResource("TileSetAtlasSource_wnfp3")
-sources/2 = SubResource("TileSetAtlasSource_7fgl4")
-sources/3 = SubResource("TileSetAtlasSource_1p1xn")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_x5j8e")
 
 [node name="main_level" type="Node2D"]
 
@@ -87,24 +58,3 @@ layer_0/tile_data = PackedInt32Array(458775, 3, 7, 458776, 3, 7, 458777, 3, 7, 4
 
 [node name="landmine_enemy" parent="." instance=ExtResource("5_wpi1c")]
 position = Vector2(352, -67)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_scale = 2.0
-
-[node name="Background" type="Sprite2D" parent="ParallaxBackground"]
-scale = Vector2(0.993843, 1)
-texture = ExtResource("7_hye0c")
-centered = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("9_tmsqg")
-centered = false
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(3840, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource("9_tmsqg")
-centered = false

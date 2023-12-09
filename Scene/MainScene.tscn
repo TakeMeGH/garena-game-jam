@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://wq7u1ks6bw26" path="res://Scene/Enemy/flying_enemy.tscn" id="5_ctr7e"]
 [ext_resource type="PackedScene" uid="uid://bkmdorreyamq0" path="res://Scene/Prefab/enemy_bullet.tscn" id="6_dcuus"]
 [ext_resource type="PackedScene" uid="uid://demfqnsecjxxl" path="res://Scene/Enemy/landmine_enemy.tscn" id="7_h2apq"]
-[ext_resource type="PackedScene" path="res://Scene/Enemy/succ_enemy.tscn" id="8_hhvt0"]
+[ext_resource type="PackedScene" uid="uid://uaitk34vr66s" path="res://Scene/Enemy/succ_enemy.tscn" id="8_hhvt0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6wv8"]
 size = Vector2(126.3, 127.2)
