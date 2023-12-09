@@ -9,14 +9,8 @@ var is_second_panel_cc = true
 var is_third_panel_cc = true
 
 signal upgrade_selected(upgrade : AbilityUpgrade)
-# Called when the node enter$HBoxContainer/PanelContainer2s the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func set_upgrade(upgrade_list : Array[AbilityUpgrade]):
 	first_panel.set_info(upgrade_list[0])
