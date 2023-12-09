@@ -13,6 +13,8 @@ func _ready():
 	this_controller = get_child(0)
 	bullet_spawn = get_child(0).get_child(0)
 	anim.play("static")
+	if(len(get_tree().get_nodes_in_group("player")) > 0):
+		player = get_tree().get_nodes_in_group("player")[0]
 	activate()
 
 func _process(delta):
@@ -27,6 +29,8 @@ func _physics_process(delta):
 
 	
 func player_dir():
+	if(player == null || player.get_child(0) == null):
+		return this_controller.global_position.normalized()
 	var ret = (player.get_child(0).global_position - this_controller.global_position).normalized()
 	
 	if ground_check.is_colliding() && ret.y > 0:
@@ -34,6 +38,8 @@ func player_dir():
 	return ret
 	
 func player_dist():
+	if(player == null || player.get_child(0) == null):
+		return 1e9
 	var ret = player.get_child(0).global_position.distance_to(this_controller.global_position)
 	return ret
 	

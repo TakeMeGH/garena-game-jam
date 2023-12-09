@@ -20,6 +20,7 @@ var base_sleep = hungry_reduction_after_sleep
 
 @onready var backup_camera : Camera2D = $BackupCamera
 @onready var UpgradeController = $UpgradeController
+@onready var enemy_spawner : EnemySpawner  = $EnemySpawner
 
 var rng = RandomNumberGenerator.new()
 
@@ -95,6 +96,8 @@ func dream_upgrade(count):
 	hungry_reduction_after_sleep = temp_sleep_cost
 
 func reset_resource():
+	enemy_spawner.reset_spanwer()
+	enemy_spawner.spawn_enemy(3)
 	spawner.reset_spanwer()
 	spawner.spawn_food(3)
 	spawner.spawn_gold(3)
