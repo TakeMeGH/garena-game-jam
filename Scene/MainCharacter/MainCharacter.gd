@@ -1,7 +1,7 @@
 extends Node2D
 class_name MainCharacter
 
-@onready var hungry_timer = $HungryTimer
+@onready var hungry_timer = %HungryTimer
 @export var max_wait_time : float = 10;
 @onready var character_movement = $CharacterBody2D
 signal hungry_timer_timeout
