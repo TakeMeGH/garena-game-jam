@@ -14,6 +14,7 @@ config/name="GarenaGameEngine"
 run/main_scene="res://Scene/MainMenuUI.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/icon.svg"
+<<<<<<<HEADrun/main_scene="res://Scene/MainMenuUI.tscn"
 
 [autoload]
 

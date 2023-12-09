@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bju6sk03pk6yx"]
+[gd_scene load_steps=23 format=3 uid="uid://bju6sk03pk6yx"]
 
 [ext_resource type="Script" path="res://Scene/Playground/CoreGameplay/CoreGamePlay.gd" id="1_4khwh"]
 [ext_resource type="PackedScene" uid="uid://5uxi564adgwp" path="res://Scene/Tower/Tower.tscn" id="1_86mwv"]
@@ -12,9 +12,44 @@
 [ext_resource type="PackedScene" uid="uid://rns4v30aivl6" path="res://Scene/Gold/gold.tscn" id="10_3qpls"]
 [ext_resource type="PackedScene" uid="uid://8prgmi5kj2n7" path="res://Scene/UpgradeUI/UpgradeUI.tscn" id="10_tu7pd"]
 [ext_resource type="PackedScene" uid="uid://dtk2toq5srlqh" path="res://Scene/Upgrade/UpgradeController.tscn" id="11_eyntc"]
+[ext_resource type="PackedScene" uid="uid://b7c8wl1m07r64" path="res://Scene/Prefab/jump_pad.tscn" id="12_20at8"]
+[ext_resource type="PackedScene" uid="uid://dqj58hrh3fyjf" path="res://Scene/Prefab/dash_pad.tscn" id="13_b341k"]
+[ext_resource type="Texture2D" uid="uid://bn14u7k4hse6j" path="res://Assets/bg/tilemap.png" id="15_wif6p"]
+[ext_resource type="PackedScene" uid="uid://demfqnsecjxxl" path="res://Scene/Enemy/landmine_enemy.tscn" id="16_41kyh"]
+[ext_resource type="PackedScene" uid="uid://btl2io8ub2xd8" path="res://Scene/Spawner/enemy_spawner.tscn" id="17_c1ipq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gcsc"]
-size = Vector2(126.3, 127.2)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bncyx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnfp3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fgl4"]
+texture = ExtResource("2_75isc")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p1xn"]
+texture = ExtResource("15_wif6p")
+margins = Vector2i(0, 136)
+texture_region_size = Vector2i(118, 118)
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-59, -59, 59, -59, 59, 59, -59, 59)
+1:7/0 = 0
+1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_usg31"]
+tile_size = Vector2i(118, 118)
+physics_layer_0/collision_layer = 254
+physics_layer_0/collision_mask = 0
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_bncyx")
+sources/1 = SubResource("TileSetAtlasSource_wnfp3")
+sources/2 = SubResource("TileSetAtlasSource_7fgl4")
+sources/3 = SubResource("TileSetAtlasSource_1p1xn")
 
 [node name="CoreGamePlay" type="Node2D"]
 script = ExtResource("1_4khwh")
@@ -65,16 +100,6 @@ scale = Vector2(2, 2)
 [node name="MainCharacter" parent="." instance=ExtResource("1_pikh1")]
 scale = Vector2(1.02085, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-6, 295)
-scale = Vector2(42.5264, 0.821488)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("2_75isc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_5gcsc")
-
 [node name="spawner" parent="." node_paths=PackedStringArray("position_list") instance=ExtResource("5_bl7wg")]
 position_list = [NodePath("../Positions/Position"), NodePath("../Positions/Position2"), NodePath("../Positions/Position3"), NodePath("../Positions/Position4"), NodePath("../Positions/Position5")]
 gold_scene = ExtResource("10_3qpls")
@@ -96,9 +121,71 @@ position = Vector2(-1161, 182)
 [node name="Position5" type="Node2D" parent="Positions"]
 position = Vector2(1260, 174)
 
+[node name="PositionsEnemy" type="Node2D" parent="."]
+
+[node name="Position" type="Node2D" parent="PositionsEnemy"]
+position = Vector2(-770, -167)
+
+[node name="Position2" type="Node2D" parent="PositionsEnemy"]
+position = Vector2(649, -176)
+
+[node name="Position3" type="Node2D" parent="PositionsEnemy"]
+position = Vector2(1203, -178)
+
+[node name="Position4" type="Node2D" parent="PositionsEnemy"]
+position = Vector2(-1323, -184)
+
+[node name="Position5" type="Node2D" parent="PositionsEnemy"]
+position = Vector2(1664, -164)
+
 [node name="UpgradeManager" parent="." instance=ExtResource("9_idbmb")]
 
 [node name="UpgradeUI" parent="." instance=ExtResource("10_tu7pd")]
 visible = false
+
+[node name="JumpPads" type="Node2D" parent="."]
+
+[node name="jump pad" parent="JumpPads" instance=ExtResource("12_20at8")]
+position = Vector2(2543, 758)
+jump_height = 2
+
+[node name="Node2D" parent="JumpPads" instance=ExtResource("12_20at8")]
+position = Vector2(-5486, -547)
+jump_height = 2
+
+[node name="Node2D2" parent="JumpPads" instance=ExtResource("12_20at8")]
+position = Vector2(-4720, 632)
+jump_height = 2
+
+[node name="Node2D3" parent="JumpPads" instance=ExtResource("12_20at8")]
+position = Vector2(-7016, -1612)
+jump_height = 2
+
+[node name="Node2D4" parent="JumpPads" instance=ExtResource("13_b341k")]
+position = Vector2(-7629, -2768)
+
+[node name="DashPads" type="Node2D" parent="."]
+
+[node name="dash pad" parent="DashPads" instance=ExtResource("13_b341k")]
+position = Vector2(5641, 790)
+
+[node name="dash pad2" parent="DashPads" instance=ExtResource("13_b341k")]
+position = Vector2(6548, 549)
+
+[node name="dash pad3" parent="DashPads" instance=ExtResource("13_b341k")]
+position = Vector2(8325, -399)
+
+[node name="landmine_enemy" parent="." instance=ExtResource("16_41kyh")]
+position = Vector2(766, 154)
+
+[node name="TileMap" type="TileMap" parent="."]
+rotation = -0.000289491
+tile_set = SubResource("TileSet_usg31")
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(196605, 3, 7, 196606, 3, 7, 196607, 3, 7, 131072, 3, 7, 131073, 3, 7, 131074, 3, 7, 131075, 3, 7, 131076, 3, 7, 131077, 3, 7, 131078, 3, 7, 131079, 3, 7, 131080, 3, 7, 131081, 3, 7, 131082, 3, 7, 131083, 3, 7, 131084, 3, 7, 131085, 3, 7, 131086, 3, 7, 131087, 3, 7, 196592, 3, 7, 196593, 3, 7, 196594, 3, 7, 196595, 3, 7, 196596, 3, 7, 196597, 3, 7, 196598, 3, 7, 196599, 3, 7, 196600, 3, 7, 196601, 3, 7, 196602, 3, 7, 196603, 3, 7, 196604, 3, 7, 196591, 3, 7, 196590, 3, 7, 196589, 3, 7, 131088, 3, 7, 131089, 3, 7, 131090, 3, 7, 131091, 3, 7, 131092, 3, 7, 131093, 3, 7)
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("position_list") instance=ExtResource("17_c1ipq")]
+position_list = [NodePath("../PositionsEnemy/Position"), NodePath("../PositionsEnemy/Position2"), NodePath("../PositionsEnemy/Position3"), NodePath("../PositionsEnemy/Position4"), NodePath("../PositionsEnemy/Position5")]
 
 [connection signal="got_food" from="spawner" to="." method="_on_spawner_got_food"]

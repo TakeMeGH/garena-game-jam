@@ -1,34 +1,75 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhif4dlmdb7dm"]
+[gd_scene load_steps=12 format=3 uid="uid://dhif4dlmdb7dm"]
 
 [ext_resource type="Texture2D" uid="uid://bd7jkabvftbwr" path="res://Assets/UI/UI/main menu backdrop.png" id="1_l17ti"]
 [ext_resource type="Texture2D" uid="uid://cryanklxqhs5i" path="res://Assets/UI/UI/play.png" id="2_hu77s"]
 [ext_resource type="Texture2D" uid="uid://dakwiciekmpts" path="res://Assets/UI/UI/Logo.png" id="2_uymm6"]
-[ext_resource type="Theme" path="res://Assets/themestesting.tres" id="3_7a2rr"]
 [ext_resource type="Texture2D" uid="uid://be1ybd0eg0jdq" path="res://Assets/UI/UI/exit.png" id="3_k1uma"]
 [ext_resource type="Texture2D" uid="uid://dfvg62clsh4dt" path="res://Assets/UI/UI/sparkle 1.png" id="5_k3btp"]
 [ext_resource type="Texture2D" uid="uid://brege0w21xg27" path="res://Assets/UI/UI/sparkle 2.png" id="6_048wn"]
+[ext_resource type="Script" path="res://AnimStart_MainMenu.gd" id="7_hmb70"]
 
 [sub_resource type="Theme" id="Theme_vjuy2"]
 
-[sub_resource type="Animation" id="Animation_gkswm"]
-resource_name = "blink1"
+[sub_resource type="Animation" id="Animation_t37la"]
+resource_name = "sparkles"
+length = 0.50001
 loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_j7yqr"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ko2q8"]
-_data = {
-"RESET": SubResource("Animation_j7yqr"),
-"blink1": SubResource("Animation_gkswm")
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sparkle1:region_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sparkle2:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_j8dk5"]
-resource_name = "Blinking1"
+[sub_resource type="Animation" id="Animation_cup4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sparkle1:region_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sparkle2:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fi4vx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xacgt"]
 _data = {
-"Blinking1": SubResource("Animation_j8dk5")
+"RESET": SubResource("Animation_cup4r"),
+"sparkles": SubResource("Animation_t37la")
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -45,6 +86,7 @@ layout_mode = 2
 texture = ExtResource("1_l17ti")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/TextureRect"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_uymm6")
@@ -67,7 +109,6 @@ theme = SubResource("Theme_vjuy2")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme = ExtResource("3_7a2rr")
 texture_normal = ExtResource("2_hu77s")
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -80,21 +121,16 @@ size_flags_vertical = 8
 texture_normal = ExtResource("3_k1uma")
 
 [node name="Sparkle1" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(960, 540)
 texture = ExtResource("5_k3btp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sparkle1"]
-libraries = {
-"": SubResource("AnimationLibrary_ko2q8")
-}
-
 [node name="Sparkle2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(960, 540)
 texture = ExtResource("6_048wn")
+region_enabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sparkle2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fi4vx")
+"": SubResource("AnimationLibrary_xacgt")
 }
+script = ExtResource("7_hmb70")

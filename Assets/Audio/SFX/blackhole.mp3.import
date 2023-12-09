@@ -2,7 +2,11 @@
 
 importer="mp3"
 type="AudioStreamMP3"
+<<<<<<< HEAD
 uid="uid://bw6pdpf4wo0x7"
+=======
+uid="uid://b53l218wpully"
+>>>>>>> 0375dd584d80e6e832f25555401ce62292872d3f
 path="res://.godot/imported/blackhole.mp3-bc3f4a2b703e474db95ac6759ef511cb.mp3str"
 
 [deps]
