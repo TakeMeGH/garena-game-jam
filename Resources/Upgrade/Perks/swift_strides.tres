@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c82f7p5ncl2n4"]
+
+[ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_5qxf3"]
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_hf552"]
+
+[resource]
+script = ExtResource("1_5qxf3")
+id = "swift_strides"
+name = "Swift Strides"
+description = "Increase your pace, a nimble dance"
+effect = "Increasing player’s movement speed by"
+icon = ExtResource("1_hf552")
+cost = 1

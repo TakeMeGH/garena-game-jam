@@ -7,6 +7,5 @@ class_name InteractionArea
 var interact: Callable = func():
 	pass
 
-
 func _on_body_entered(body):
 	await interact.call(body)
