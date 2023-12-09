@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cghmwljstd24l"]
+
+[ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_jkwvg"]
+
+[resource]
+script = ExtResource("1_jkwvg")
+id = "hunger_harmony"
+name = "Hunger Harmony"
+description = "savor the feast, a multiplier’s grace"
+effect = "multiplies how many hunger points can a food restore"
+cost = 0

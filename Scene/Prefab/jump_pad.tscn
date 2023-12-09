@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxh7qlm5r04w"]
+[gd_scene load_steps=4 format=3 uid="uid://b7c8wl1m07r64"]
 
 [ext_resource type="Script" path="res://jump_pad.gd" id="1_m63hc"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_vjt4a"]

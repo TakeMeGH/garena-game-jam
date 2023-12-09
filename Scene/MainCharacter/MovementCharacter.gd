@@ -13,6 +13,7 @@ var can_move : bool = true
 var sliding : bool = false
 
 func get_input(delta):
+
 	var input_direction = Input.get_axis("left", "right")
 
 	# if !Input.is_action_pressed("slide"):
@@ -38,7 +39,6 @@ func get_input(delta):
 func _physics_process(delta):
 	if can_move:
 		moving(delta)
-	
 	move_and_slide()
 
 func moving(delta):

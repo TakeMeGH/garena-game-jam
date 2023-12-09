@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cw85saaksuhov"]
+
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_23laf"]
+[ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_pl001"]
+
+[resource]
+script = ExtResource("1_pl001")
+id = "dreamy_digestion"
+name = "Dreamy Digestion"
+description = "Awake from slumber, hunger light"
+effect = "Defy gravity, in the air you soar"
+icon = ExtResource("1_23laf")
+cost = 1
