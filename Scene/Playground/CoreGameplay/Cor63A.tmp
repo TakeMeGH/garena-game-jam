@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://bju6sk03pk6yx"]
+
+[ext_resource type="Script" path="res://Scene/Playground/CoreGameplay/CoreGamePlay.gd" id="1_4khwh"]
+[ext_resource type="PackedScene" uid="uid://5uxi564adgwp" path="res://Scene/Tower/Tower.tscn" id="1_86mwv"]
+[ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_pikh1"]
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_75isc"]
+[ext_resource type="PackedScene" uid="uid://b7k5h15hjppw1" path="res://Scene/Spawner/spawner.tscn" id="5_bl7wg"]
+[ext_resource type="Texture2D" uid="uid://cr4c8k3g2crxj" path="res://Assets/healthbarUnder.png" id="6_2jxs4"]
+[ext_resource type="Texture2D" uid="uid://b7coqbhhnxm08" path="res://Assets/healthbarProgress.png" id="7_rr366"]
+[ext_resource type="PackedScene" uid="uid://ctbb58ohre45u" path="res://Scene/Sleep/sleep.tscn" id="8_yvt2b"]
+[ext_resource type="PackedScene" uid="uid://c8o4ir8f1lqmo" path="res://Scene/Upgrade/UpgradeManager.tscn" id="9_idbmb"]
+[ext_resource type="PackedScene" uid="uid://rns4v30aivl6" path="res://Scene/Gold/gold.tscn" id="10_3qpls"]
+[ext_resource type="PackedScene" uid="uid://8prgmi5kj2n7" path="res://Scene/UpgradeUI/UpgradeUI.tscn" id="10_tu7pd"]
+[ext_resource type="PackedScene" uid="uid://dtk2toq5srlqh" path="res://Scene/Upgrade/UpgradeController.tscn" id="11_eyntc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gcsc"]
+size = Vector2(126.3, 127.2)
+
+[node name="CoreGamePlay" type="Node2D"]
+script = ExtResource("1_4khwh")
+hungry_random_range_min = 0.7
+hungry_random_range_max = 1.3
+hungry_base_value = 3.0
+hungry_reduction_after_sleep = 2.0
+player = ExtResource("1_pikh1")
+
+[node name="BackupCamera" type="Camera2D" parent="."]
+position = Vector2(1552, 1208)
+scale = Vector2(4.88, 1)
+enabled = false
+zoom = Vector2(0.5, 0.5)
+
+[node name="UpgradeController" parent="." instance=ExtResource("11_eyntc")]
+
+[node name="HungerBar" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HungerBar"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_top = -1.0
+offset_right = -72.0
+offset_bottom = 9.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = ExtResource("6_2jxs4")
+texture_progress = ExtResource("7_rr366")
+
+[node name="Tower" parent="." instance=ExtResource("1_86mwv")]
+position = Vector2(13, -76)
+scale = Vector2(5, 5)
+
+[node name="sleep" parent="." instance=ExtResource("8_yvt2b")]
+position = Vector2(290, 152)
+scale = Vector2(2, 2)
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_pikh1")]
+scale = Vector2(1.02085, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-6, 295)
+scale = Vector2(42.5264, 0.821488)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_75isc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5gcsc")
+
+[node name="spawner" parent="." node_paths=PackedStringArray("position_list") instance=ExtResource("5_bl7wg")]
+position_list = [NodePath("../Positions/Position"), NodePath("../Positions/Position2"), NodePath("../Positions/Position3"), NodePath("../Positions/Position4"), NodePath("../Positions/Position5")]
+gold_scene = ExtResource("10_3qpls")
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Position" type="Node2D" parent="Positions"]
+position = Vector2(-718, 195)
+
+[node name="Position2" type="Node2D" parent="Positions"]
+position = Vector2(521, 195)
+
+[node name="Position3" type="Node2D" parent="Positions"]
+position = Vector2(998, 203)
+
+[node name="Position4" type="Node2D" parent="Positions"]
+position = Vector2(-1161, 182)
+
+[node name="Position5" type="Node2D" parent="Positions"]
+position = Vector2(1260, 174)
+
+[node name="UpgradeManager" parent="." instance=ExtResource("9_idbmb")]
+
+[node name="UpgradeUI" parent="." instance=ExtResource("10_tu7pd")]
+visible = false
+
+[connection signal="got_food" from="spawner" to="." method="_on_spawner_got_food"]
