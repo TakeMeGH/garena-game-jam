@@ -1,10 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://wq7u1ks6bw26"]
+[gd_scene load_steps=17 format=3 uid="uid://wq7u1ks6bw26"]
 
 [ext_resource type="Script" path="res://flying_enemy.gd" id="1_jau6p"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_61qvx"]
+[ext_resource type="Texture2D" uid="uid://crb885xxsvud7" path="res://Assets/cupid/cupid_static_0000.png" id="3_lytxt"]
+[ext_resource type="Texture2D" uid="uid://p2i0j5b7ktkd" path="res://Assets/cupid/cupid_static_0004.png" id="4_ces63"]
+[ext_resource type="Texture2D" uid="uid://dgw60llc87s5c" path="res://Assets/cupid/cupid_static_0008.png" id="5_6fqhv"]
+[ext_resource type="Texture2D" uid="uid://ew1h4pdmrwnu" path="res://Assets/cupid/cupid attack_0000.png" id="6_j6xjm"]
+[ext_resource type="Texture2D" uid="uid://duae21d41rtio" path="res://Assets/cupid/cupid attack_0004.png" id="7_5kuii"]
+[ext_resource type="Texture2D" uid="uid://br1vv6hjyhdvu" path="res://Assets/cupid/cupid attack_0008.png" id="8_rp65d"]
+[ext_resource type="Texture2D" uid="uid://dgod0u2xiu2s6" path="res://Assets/cupid/cupid attack_0012.png" id="9_3l7xi"]
+[ext_resource type="Texture2D" uid="uid://dkgq28gpxakmd" path="res://Assets/cupid/cupid attack_0015.png" id="10_twu85"]
+[ext_resource type="Texture2D" uid="uid://y4oa5w7np2rg" path="res://Assets/cupid/cupid attack_0018.png" id="11_dewne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78oae"]
 size = Vector2(128, 129)
+
+[sub_resource type="Animation" id="Animation_66gsf"]
+resource_name = "static"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_lytxt"), ExtResource("4_ces63"), ExtResource("5_6fqhv")]
+}
+
+[sub_resource type="Animation" id="Animation_cykvh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_61qvx")]
+}
+
+[sub_resource type="Animation" id="Animation_hxjmp"]
+resource_name = "attack"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_j6xjm"), ExtResource("7_5kuii"), ExtResource("8_rp65d"), ExtResource("9_3l7xi"), ExtResource("10_twu85"), ExtResource("11_dewne")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1hbq"]
+_data = {
+"RESET": SubResource("Animation_cykvh"),
+"attack": SubResource("Animation_hxjmp"),
+"static": SubResource("Animation_66gsf")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_jau6p")
@@ -16,6 +81,8 @@ collision_mask = 2
 motion_mode = 1
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(3, 12)
+scale = Vector2(0.535, 0.535)
 texture = ExtResource("2_61qvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -27,3 +94,8 @@ position = Vector2(-1, 89)
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
 target_position = Vector2(-1, 800)
 collision_mask = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_l1hbq")
+}

@@ -6,11 +6,20 @@ var this_controller : CharacterBody2D
 var bullet_spawn : Node2D
 @export var speed : float
 @onready var ground_check = $CharacterBody2D/RayCast2D
+@onready var sprite : Sprite2D = $CharacterBody2D/Icon
+@onready var anim = $CharacterBody2D/AnimationPlayer
 
 func _ready():
 	this_controller = get_child(0)
 	bullet_spawn = get_child(0).get_child(0)
+	anim.play("static")
 	activate()
+
+func _process(delta):
+	if this_controller.velocity.x > 0:
+		sprite.flip_h = true
+	elif this_controller.velocity.x < 0:
+		sprite.flip_h = false
 
 func _physics_process(delta):
 	this_controller.move_and_slide()
@@ -47,7 +56,8 @@ func readjust():
 func activate():
 	if player_dist() < 800:
 		stop()
-		await get_tree().create_timer(0.1).timeout
+		anim.play("attack")
+		await get_tree().create_timer(0.8).timeout
 		shoot()
 		await get_tree().create_timer(1).timeout
 		readjust()
@@ -55,6 +65,7 @@ func activate():
 		stop()
 		activate()
 	else:
+		anim.play("static")
 		await get_tree().create_timer(0.01).timeout
 		var dir = player_dir()
 		this_controller.velocity = player_dir() * speed

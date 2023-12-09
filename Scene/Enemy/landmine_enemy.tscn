@@ -1,7 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://demfqnsecjxxl"]
+[gd_scene load_steps=21 format=3 uid="uid://demfqnsecjxxl"]
 
 [ext_resource type="Script" path="res://landmine_enemy.gd" id="1_b5670"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_vkulc"]
+[ext_resource type="Texture2D" uid="uid://c5s3otm4yqw5j" path="res://Assets/landmine/jack_0032.png" id="3_a7jq0"]
+[ext_resource type="Texture2D" uid="uid://cef3m43fua10i" path="res://Assets/landmine/jack_0003.png" id="4_e6ot6"]
+[ext_resource type="Texture2D" uid="uid://d18lrx8ghxccb" path="res://Assets/landmine/jack_0005.png" id="5_ayybt"]
+[ext_resource type="Texture2D" uid="uid://2r3eb81p65ty" path="res://Assets/landmine/jack_0007.png" id="6_mmbg5"]
+[ext_resource type="Texture2D" uid="uid://d47lrwjcaby5" path="res://Assets/landmine/jack_0009.png" id="7_vh7vi"]
+[ext_resource type="Texture2D" uid="uid://b8e7cb52ksjka" path="res://Assets/landmine/jack_0013.png" id="8_4q0kv"]
+[ext_resource type="Texture2D" uid="uid://dnkqcn43sm5xe" path="res://Assets/landmine/jack_0017.png" id="9_b3jnl"]
+[ext_resource type="Texture2D" uid="uid://bfp62mbmunq1q" path="res://Assets/landmine/jack_0021.png" id="10_rpw02"]
+[ext_resource type="Texture2D" uid="uid://cjrojergcvgmd" path="res://Assets/landmine/jack_0024.png" id="11_fuily"]
+[ext_resource type="Texture2D" uid="uid://c3bhvjcq2svbt" path="res://Assets/landmine/jack_0026.png" id="12_ng68s"]
+[ext_resource type="Texture2D" uid="uid://blie6uvhf2t51" path="res://Assets/landmine/jack_0029.png" id="13_dc8ew"]
+[ext_resource type="Texture2D" uid="uid://bv724ue6s21y8" path="res://Assets/landmine/jack_0031.png" id="14_qysik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rebjq"]
 size = Vector2(129, 0)
@@ -9,13 +21,69 @@ size = Vector2(129, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grimx"]
 size = Vector2(129, 127)
 
+[sub_resource type="Animation" id="Animation_s80un"]
+resource_name = "landmine"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_a7jq0"), ExtResource("4_e6ot6"), ExtResource("5_ayybt"), ExtResource("6_mmbg5"), ExtResource("7_vh7vi"), ExtResource("8_4q0kv"), ExtResource("9_b3jnl"), ExtResource("10_rpw02"), ExtResource("11_fuily"), ExtResource("12_ng68s"), ExtResource("13_dc8ew"), ExtResource("14_qysik"), ExtResource("3_a7jq0")]
+}
+
+[sub_resource type="Animation" id="Animation_8eyyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_vkulc")]
+}
+
+[sub_resource type="Animation" id="Animation_ewcw8"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.2, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_a7jq0"), ExtResource("3_a7jq0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jaqb6"]
+_data = {
+"RESET": SubResource("Animation_8eyyv"),
+"idle": SubResource("Animation_ewcw8"),
+"landmine": SubResource("Animation_s80un")
+}
+
 [node name="landmine_enemy" type="Node2D"]
 script = ExtResource("1_b5670")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 2
+collision_mask = 3
 
 [node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(2, 0)
+scale = Vector2(0.435, 0.435)
 texture = ExtResource("2_vkulc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -27,3 +95,8 @@ shape = SubResource("RectangleShape2D_rebjq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_grimx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_jaqb6")
+}

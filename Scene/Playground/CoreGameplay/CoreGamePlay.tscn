@@ -38,6 +38,7 @@ step = 0.0
 value = 1.0
 texture_under = ExtResource("6_2jxs4")
 texture_progress = ExtResource("7_rr366")
+metadata/_edit_use_anchors_ = true
 
 [node name="sleep" parent="." instance=ExtResource("8_yvt2b")]
 position = Vector2(290, 152)
