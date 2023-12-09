@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://qds1qmb0wp0i"]
+
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_m3203"]
+[ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_mnwch"]
+
+[resource]
+script = ExtResource("1_mnwch")
+id = "sustenance_symphony"
+name = "Sustenance Symphony"
+description = "Expand your hunger, an enduring plea"
+effect = "Increase maximum hunger points by 1
+"
+icon = ExtResource("1_m3203")
+cost = 2

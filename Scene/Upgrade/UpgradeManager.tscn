@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8o4ir8f1lqmo"]
+
+[ext_resource type="Script" path="res://Scene/Upgrade/UpgradeManager.gd" id="1_bm130"]
+[ext_resource type="Resource" uid="uid://c82f7p5ncl2n4" path="res://Resources/Upgrade/Perks/swift_strides.tres" id="2_oj1pp"]
+[ext_resource type="Resource" uid="uid://d1wvnfrqub5vs" path="res://Resources/Upgrade/Perks/satiety_serenade.tres" id="3_k6us6"]
+[ext_resource type="Resource" uid="uid://cw85saaksuhov" path="res://Resources/Upgrade/Perks/dreamy_digestion.tres" id="4_rbbbw"]
+
+[node name="UpgradeManager" type="Node2D"]
+script = ExtResource("1_bm130")
+upgrade_list = Array[Resource("res://Resources/Upgrade/ability_upgrade.gd")]([ExtResource("2_oj1pp"), ExtResource("3_k6us6"), ExtResource("4_rbbbw")])
