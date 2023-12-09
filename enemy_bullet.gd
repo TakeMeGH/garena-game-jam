@@ -2,9 +2,11 @@ extends Node2D
 
 var sb : StaticBody2D
 var dir_vec = Vector2(10,10)
+var dest = false
 
 func _ready():
 	sb = get_child(0)
+	destroy()
 
 func _physics_process(delta):
 	#sb.constant_linear_velocity = Vector2.UP * -10
@@ -12,6 +14,7 @@ func _physics_process(delta):
 	# print(dir_vec)
 	if col != null:
 		make_damage(col)
+		dest = true
 		get_parent().remove_child(self)
 	
 	
@@ -21,4 +24,5 @@ func make_damage(player):
 
 func destroy():
 	await get_tree().create_timer(2).timeout
-	get_parent().remove_child(self)
+	if !dest:
+		get_parent().remove_child(self)
