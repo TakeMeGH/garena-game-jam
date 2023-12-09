@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtk2toq5srlqh"]
+
+[ext_resource type="Script" path="res://Scene/Upgrade/UpgradeController.gd" id="1_mrk1a"]
+
+[node name="UpgradeController" type="Node2D"]
+script = ExtResource("1_mrk1a")

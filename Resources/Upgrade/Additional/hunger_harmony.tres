@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cghmwljstd24l"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://cghmwljstd24l"]
 
+[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_8403t"]
 [ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_jkwvg"]
 
 [resource]
@@ -7,5 +8,6 @@ script = ExtResource("1_jkwvg")
 id = "hunger_harmony"
 name = "Hunger Harmony"
 description = "savor the feast, a multiplier’s grace"
-effect = "multiplies how many hunger points can a food restore"
-cost = 0
+effect = "\"multiplies 1.5x hunger points can a food restore\""
+icon = ExtResource("1_8403t")
+cost = 2
