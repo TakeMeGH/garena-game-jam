@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8d45u0si4m4d"
+path="res://.godot/imported/ALERT_Appear.wav-90a95e0f2c5015019405a6d9dd6c518f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/GameObject picked/ALERT_Appear.wav"
+dest_files=["res://.godot/imported/ALERT_Appear.wav-90a95e0f2c5015019405a6d9dd6c518f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
