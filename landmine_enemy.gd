@@ -12,7 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	if(len(area.get_overlapping_bodies()) > 0) && !enable:
-		await area.get_overlapping_bodies()[0].force_push(position, 1000)
+		await area.get_overlapping_bodies()[0].force_push(position - Vector2(0,-100), 1000)
 		sprite.visible = true
 		enable = true
 		surprise()

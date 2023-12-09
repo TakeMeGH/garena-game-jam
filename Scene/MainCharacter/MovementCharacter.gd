@@ -8,6 +8,7 @@ extends CharacterBody2D
 var curr_speed : float= 0
 var speed_lerp : float = 0
 var jump_amount = 2
+var dash_amount = 1
 var can_move : bool = true
 var sliding : bool = false
 
@@ -16,8 +17,9 @@ func get_input(delta):
 
 	# if !Input.is_action_pressed("slide"):
 	# 	curr_speed = input_direction * speed
-	if Input.is_action_just_pressed("slide"):
+	if Input.is_action_just_pressed("slide") && dash_amount > 0:
 		curr_speed += input_direction * speed * 2
+		dash_amount -= 1
 
 	if !Input.is_action_pressed("slide"):
 		if !is_on_floor():
@@ -46,6 +48,7 @@ func moving(delta):
 			velocity.y = 1000
 	else:
 		jump_amount = 2
+		dash_amount = 1
 
 	if Input.is_action_pressed("slide"):
 		curr_speed -= velocity.normalized().x * 20
@@ -73,6 +76,11 @@ func force_push(origin_vector, amount):
 	curr_speed = vec.x
 	velocity.y = vec.y
 	enable_control()
+
+func manip_force(origin_vector, amount):
+	var vec = (global_position - origin_vector).normalized() * amount
+	curr_speed += vec.x
+	velocity.y += vec.y
 
 func enable_control():
 	await get_tree().create_timer(1).timeout

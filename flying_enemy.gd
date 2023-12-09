@@ -42,7 +42,7 @@ func stop():
 func readjust():
 	var dist = ground_check.get_collision_point().distance_to(this_controller.global_position)
 	if dist < 500:
-		this_controller.velocity =Vector2.UP * speed
+		this_controller.velocity = Vector2.UP * speed
 	
 func activate():
 	if player_dist() < 800:

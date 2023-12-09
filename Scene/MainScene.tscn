@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg673o6q7pdot"]
+[gd_scene load_steps=10 format=3 uid="uid://bg673o6q7pdot"]
 
 [ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_hss2r"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_7b45c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://wq7u1ks6bw26" path="res://Scene/Enemy/flying_enemy.tscn" id="5_ctr7e"]
 [ext_resource type="PackedScene" uid="uid://bkmdorreyamq0" path="res://Scene/Prefab/enemy_bullet.tscn" id="6_dcuus"]
 [ext_resource type="PackedScene" uid="uid://demfqnsecjxxl" path="res://Scene/Enemy/landmine_enemy.tscn" id="7_h2apq"]
+[ext_resource type="PackedScene" uid="uid://ci34by2ngm3qf" path="res://Scene/Enemy/succ_enemy.tscn" id="8_hhvt0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6wv8"]
 size = Vector2(126.3, 127.2)
@@ -14,7 +15,7 @@ size = Vector2(126.3, 127.2)
 [node name="MainScene" type="Node2D"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_hss2r")]
-position = Vector2(3, 14)
+position = Vector2(4188, 1020)
 scale = Vector2(1.10584, 1.00651)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,3 +59,7 @@ speed = 800.0
 
 [node name="landmine_enemy" parent="." instance=ExtResource("7_h2apq")]
 position = Vector2(1054, 167)
+push_force = 1000
+
+[node name="succ_enemy" parent="." instance=ExtResource("8_hhvt0")]
+position = Vector2(5085, 787)
