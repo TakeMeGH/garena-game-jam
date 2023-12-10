@@ -345,7 +345,8 @@ position = Vector2(-1520, -26)
 motion_mirroring = Vector2(3000, 0)
 
 [node name="Scenery2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(250, 521)
+position = Vector2(217, 445)
+scale = Vector2(1.23096, 1.23096)
 texture = ExtResource("20_oq4d4")
 region_enabled = true
 region_rect = Rect2(550, 0, 2500, 1050)
