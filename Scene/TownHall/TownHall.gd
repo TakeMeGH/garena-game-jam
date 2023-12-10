@@ -17,7 +17,7 @@ func pay(money : int):
 	if(is_upgrade_available(money)):
 		upgrade()
 		if(current_level == 6):
-			get_tree().change_scene_to_file("res://Scene/MainMenuUI.tscn")
+			get_tree().change_scene_to_file("res://Scene/FinishUI/finishUI.tscn")
 			reset_level()
 
 
