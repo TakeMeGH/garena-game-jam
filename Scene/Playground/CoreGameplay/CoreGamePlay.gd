@@ -22,9 +22,14 @@ var base_sleep = hungry_reduction_after_sleep
 @onready var UpgradeController = $UpgradeController
 @onready var enemy_spawner : EnemySpawner  = $EnemySpawner
 
+@onready var game_music_player = $GameMusicPlayer
+@onready var sleep_music_player = $SleepMusicPlayer
+@onready var lose_music_player = $LoseMusicPlayer
+
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	game_music_player.play()
 	sleep.sleep_interact_in.connect(_sleep_interact_in)
 	sleep.sleep_interact_out.connect(_sleep_interact_out)
 	sleep.interact = Callable(self, "_on_sleep_interact")
@@ -46,6 +51,10 @@ func _on_main_character_hungry_timer_timeout():
 	upgrade_ui.set_upgrade(upgrade_manager.get_upgrade(3))
 	upgrade_ui.show()
 	reset_resource()
+	lose_music_player.play()
+	game_music_player.stop()
+	sleep_music_player.stop()
+	
 
 func _on_spawner_got_food():
 	if(main_character == null):
@@ -64,11 +73,16 @@ func _sleep_interact_in():
 	main_character.enable_input(false)
 	main_character.character_movement.slow_down()
 	main_character.hungry_timer.paused = true
+	game_music_player.stop()
+	sleep_music_player.play()
+	
 
 
 func _sleep_interact_out():
 	main_character.hungry_timer.paused = false
 	main_character.enable_input(true)
+	sleep_music_player.stop()
+	game_music_player.play()
 
 
 func _on_sleep_interact():
@@ -91,6 +105,10 @@ func on_upgrade_selected(upgrade : AbilityUpgrade):
 	
 	UpgradeController.set_main_character(main_character)
 	UpgradeController.reset()
+	
+	lose_music_player.stop()
+	game_music_player.play()
+	sleep_music_player.stop()
 	
 func dream_upgrade(count):
 	var temp_sleep_cost : float = base_sleep

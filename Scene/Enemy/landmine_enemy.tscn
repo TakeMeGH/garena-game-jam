@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://demfqnsecjxxl"]
+[gd_scene load_steps=22 format=3 uid="uid://demfqnsecjxxl"]
 
 [ext_resource type="Script" path="res://landmine_enemy.gd" id="1_b5670"]
 [ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_vkulc"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c3bhvjcq2svbt" path="res://Assets/landmine/jack_0026.png" id="12_ng68s"]
 [ext_resource type="Texture2D" uid="uid://blie6uvhf2t51" path="res://Assets/landmine/jack_0029.png" id="13_dc8ew"]
 [ext_resource type="Texture2D" uid="uid://bv724ue6s21y8" path="res://Assets/landmine/jack_0031.png" id="14_qysik"]
+[ext_resource type="AudioStream" uid="uid://d08gri2g20x7a" path="res://Assets/Audio/SFX/landmine/explosions/explode.wav" id="15_w84lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rebjq"]
 size = Vector2(129, 0)
@@ -100,3 +101,6 @@ shape = SubResource("RectangleShape2D_grimx")
 libraries = {
 "": SubResource("AnimationLibrary_jaqb6")
 }
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_w84lq")

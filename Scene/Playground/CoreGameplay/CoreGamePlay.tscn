@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bju6sk03pk6yx"]
+[gd_scene load_steps=39 format=3 uid="uid://bju6sk03pk6yx"]
 
 [ext_resource type="Script" path="res://Scene/Playground/CoreGameplay/CoreGamePlay.gd" id="1_4khwh"]
 [ext_resource type="PackedScene" uid="uid://ddl34pl6dt3wj" path="res://Scene/MainCharacter/MainCharacter.tscn" id="1_pikh1"]
@@ -21,10 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://Scene/Prefab/dash_pad.tscn" id="13_b341k"]
 [ext_resource type="Texture2D" uid="uid://bn14u7k4hse6j" path="res://Assets/bg/tilemap.png" id="15_wif6p"]
 [ext_resource type="Texture2D" uid="uid://cu16fljauegmq" path="res://Assets/tilemapv2.png" id="16_cq0y2"]
-[ext_resource type="PackedScene" uid="uid://btl2io8ub2xd8" path="res://Scene/Spawner/enemy_spawner.tscn" id="17_c1ipq"]
+[ext_resource type="PackedScene" path="res://Scene/Spawner/enemy_spawner.tscn" id="17_c1ipq"]
 [ext_resource type="Texture2D" uid="uid://bxtxgymr83wi4" path="res://Assets/parallux/background.png" id="19_4q21q"]
 [ext_resource type="Texture2D" uid="uid://fs60xe2e4ohn" path="res://Assets/parallux/scenery.png" id="20_oq4d4"]
 [ext_resource type="Texture2D" uid="uid://r5hh4wxqqdvr" path="res://Assets/parallux/tirai.png" id="24_1q0jb"]
+[ext_resource type="Texture2D" uid="uid://s6yp76urskt" path="res://Assets/parallux/clouds/5.png" id="24_u1083"]
+[ext_resource type="Texture2D" uid="uid://dq28un18ij0i6" path="res://Assets/parallux/clouds/3.png" id="25_nhdi8"]
+[ext_resource type="Texture2D" uid="uid://u12g6gpbgf2s" path="res://Assets/parallux/clouds/1.png" id="26_s0my4"]
+[ext_resource type="Texture2D" uid="uid://coni63ioftn7l" path="res://Assets/parallux/clouds/2.png" id="27_abt5s"]
+[ext_resource type="AudioStream" uid="uid://dmphof6bqv42c" path="res://Assets/Audio/BGM/2_in-game.mp3" id="30_6whki"]
+[ext_resource type="AudioStream" uid="uid://bjop2at31hn5m" path="res://Assets/Audio/BGM/3_sleep.mp3" id="31_01hp4"]
+[ext_resource type="AudioStream" uid="uid://dahqdp1r3w4qm" path="res://Assets/Audio/BGM/5_losing.mp3" id="32_ijqjg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bncyx"]
 
@@ -333,23 +340,60 @@ scale = Vector2(0.993843, 1)
 texture = ExtResource("19_4q21q")
 centered = false
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("20_oq4d4")
-centered = false
-
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(3840, 0)
+position = Vector2(-1520, -26)
+motion_mirroring = Vector2(3000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Scenery2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(250, 521)
 texture = ExtResource("20_oq4d4")
-centered = false
+region_enabled = true
+region_rect = Rect2(550, 0, 2500, 1050)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground"]
 z_index = 100
 texture = ExtResource("24_1q0jb")
 centered = false
 offset = Vector2(0, -20)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+follow_viewport_scale = 2.0
+scroll_base_scale = Vector2(0.1, 0.1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="5" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+z_index = 20
+position = Vector2(871, 217)
+texture = ExtResource("24_u1083")
+
+[node name="3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(264, 310)
+texture = ExtResource("25_nhdi8")
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(748, 351)
+texture = ExtResource("26_s0my4")
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(2031, 389)
+texture = ExtResource("27_abt5s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground2"]
+z_index = 100
+texture = ExtResource("24_1q0jb")
+centered = false
+offset = Vector2(0, -20)
+
+[node name="GameMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_6whki")
+volume_db = -10.0
+
+[node name="SleepMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_01hp4")
+volume_db = -10.0
+
+[node name="LoseMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_ijqjg")
 
 [connection signal="got_food" from="spawner" to="." method="_on_spawner_got_food"]
