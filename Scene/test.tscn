@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://dfdyygr4sxyv4"]
+[gd_scene load_steps=2 format=3 uid="uid://dfdyygr4sxyv4"]
+
+[ext_resource type="Theme" uid="uid://b5tlfu5w8af8m" path="res://themestesting.tres" id="1_lmv7e"]
 
 [node name="test" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_lmv7e")
