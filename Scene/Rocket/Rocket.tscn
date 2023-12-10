@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://67mxdh2qg5wl"]
+
+[ext_resource type="Script" path="res://Scene/Rocket/Rocket.gd" id="1_pg1en"]
+
+[node name="Rocket" type="Node2D"]
+script = ExtResource("1_pg1en")
+load_path = Array[String](["\"res://Assets/Ship/1.png\"", "\"res://Assets/Ship/2.png\"", "\"res://Assets/Ship/3.png\"", "\"res://Assets/Ship/4.png\"", "\"res://Assets/Ship/5.png\""])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

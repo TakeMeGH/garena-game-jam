@@ -25,7 +25,6 @@ func _process(delta):
 
 func _physics_process(delta):
 	this_controller.move_and_slide()
-	print(ground_check.is_colliding())
 
 	
 func player_dir():
@@ -44,6 +43,8 @@ func player_dist():
 	return ret
 	
 func shoot():
+	if(player == null):
+		return
 	var bul = bullet.instantiate()
 	get_parent().add_child(bul)
 	bul = get_parent().get_node("Bullet")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cied1bkaakbrf"]
 
-[ext_resource type="PackedScene" uid="uid://b7c8wl1m07r64" path="res://Scene/Prefab/jump_pad.tscn" id="2_6w5p3"]
-[ext_resource type="PackedScene" uid="uid://dqj58hrh3fyjf" path="res://Scene/Prefab/dash_pad.tscn" id="3_fkpe4"]
+[ext_resource type="PackedScene" uid="uid://dxh7qlm5r04w" path="res://Scene/Prefab/jump_pad.tscn" id="2_6w5p3"]
+[ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://Scene/Prefab/dash_pad.tscn" id="3_fkpe4"]
 [ext_resource type="PackedScene" uid="uid://demfqnsecjxxl" path="res://Scene/Enemy/landmine_enemy.tscn" id="6_2u5wg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g8xu8"]

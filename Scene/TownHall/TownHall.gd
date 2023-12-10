@@ -18,4 +18,6 @@ func pay(money : int):
 		upgrade()
 
 func upgrade():
-	pass
+	Gold.gold -= get_level_cost()
+	current_level += 1
+	
