@@ -8,5 +8,9 @@ id = "gold_revelry"
 name = "Gold Revelry"
 description = "Multiply the yield, a harvest grand"
 effect = "\"multiplies 1.25x can a player get from a materias\""
+<<<<<<< HEAD
 icon_path = "res://Assets/UI/Icons/Group 5.png"
+=======
+icon_path = "res://Assets\\UI\\Icons\\Group 5"
+>>>>>>> b7dc2025b3cfb42858085bd095026018918c0b29
 cost = 2

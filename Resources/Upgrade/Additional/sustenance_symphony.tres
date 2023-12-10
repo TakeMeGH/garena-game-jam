@@ -10,5 +10,9 @@ name = "Sustenance Symphony"
 description = "Expand your hunger, an enduring plea"
 effect = "\"Increase maximum hunger points by 1\"
 "
+<<<<<<< HEAD
 icon_path = "res://Assets/UI/Icons/Group 4.png"
+=======
+icon_path = "res://Assets\\UI\\Icons\\Group 4"
+>>>>>>> b7dc2025b3cfb42858085bd095026018918c0b29
 cost = 2

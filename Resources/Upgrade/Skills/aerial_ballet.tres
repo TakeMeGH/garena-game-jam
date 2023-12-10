@@ -8,5 +8,9 @@ id = "aerial_ballet"
 name = "Aerial Ballet"
 description = "Defy gravity, in the air you soar"
 effect = "\"Enabling player’s ability to jump in the air\""
+<<<<<<< HEAD
 icon_path = "res://Assets/main_chara/jump.png"
+=======
+icon_path = "res://Assets\\main_chara\\jump"
+>>>>>>> b7dc2025b3cfb42858085bd095026018918c0b29
 cost = 5

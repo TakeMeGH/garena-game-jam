@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bpnq7u0njc8jh"
+=======
+uid="uid://dbocvr8y4gceh"
+>>>>>>> b7dc2025b3cfb42858085bd095026018918c0b29
 path="res://.godot/imported/sparkle 2.png-c876406ea1cf5defb3ebc447bc9316bf.ctex"
 metadata={
 "vram_texture": false

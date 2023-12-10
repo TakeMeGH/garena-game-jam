@@ -8,5 +8,9 @@ id = "dreamy_digestion"
 name = "Dreamy Digestion"
 description = "Awake from slumber, hunger light"
 effect = "\"Reduce hunger effects after player woke up\""
+<<<<<<< HEAD
 icon_path = "res://Assets/UI/Icons/Group 6.png"
+=======
+icon_path = "res://Assets\\UI\\Icons\\Group 6"
+>>>>>>> b7dc2025b3cfb42858085bd095026018918c0b29
 cost = 1

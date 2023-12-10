@@ -8,5 +8,9 @@ id = "satiety_serenade"
 name = "Satiety Serenade"
 description = "Hunger’s grasp, a gentle sway"
 effect = "\"Player can maintain hunger level longer\""
+<<<<<<< HEAD
 icon_path = "res://Assets/UI/Icons/Group 4.png"
+=======
+icon_path = "res://Assets\\UI\\Icons\\Group 4"
+>>>>>>> b7dc2025b3cfb42858085bd095026018918c0b29
 cost = 1
