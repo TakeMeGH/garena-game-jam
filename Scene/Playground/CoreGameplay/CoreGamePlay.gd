@@ -22,6 +22,7 @@ var base_sleep = hungry_reduction_after_sleep
 @onready var UpgradeController = $UpgradeController
 @onready var enemy_spawner : EnemySpawner  = $EnemySpawner
 
+const number_of_spawned_object = 10
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -83,6 +84,7 @@ func on_upgrade_selected(upgrade : AbilityUpgrade):
 	upgrade_ui.hide()
 	
 	main_character = player.instantiate()
+	Gold.gold = 0
 	backup_camera.enabled = false
 	add_child(main_character)
 	TownHall.reset_level()
@@ -100,7 +102,7 @@ func dream_upgrade(count):
 
 func reset_resource():
 	enemy_spawner.reset_spanwer()
-	enemy_spawner.spawn_enemy(3)
+	enemy_spawner.spawn_enemy(4*number_of_spawned_object)
 	spawner.reset_spanwer()
-	spawner.spawn_food(3)
-	spawner.spawn_gold(3)
+	spawner.spawn_food(2*number_of_spawned_object)
+	spawner.spawn_gold(2*number_of_spawned_object)

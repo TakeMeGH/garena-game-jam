@@ -1,6 +1,6 @@
 extends Node2D
 class_name Spawner
-@export var position_list : Array[Node2D]
+var position_list : Array[Node2D]
 @export var food_scene : PackedScene
 @export var gold_scene : PackedScene
 
@@ -12,6 +12,10 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	reset_spanwer()
+	var location_resource = $"../Positions"
+	for _i in location_resource.get_children():
+		position_list.append(_i)
+
 
 func spawn_food(number_of_food):
 	for i in range(number_of_food):
@@ -37,7 +41,7 @@ func spawn_gold(number_of_gold):
 		avail_position.remove_at(get_index)
 		
 		var created_gold : GoldObject = gold_scene.instantiate()
-		created_gold.gold_interact.connect(retrieve_food)
+		created_gold.gold_interact.connect(retrieve_gold)
 		add_child(created_gold)
 		
 		created_gold.global_position = random_position.global_position

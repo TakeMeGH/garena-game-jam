@@ -63,7 +63,7 @@ func extend_timer(count):
 	max_wait_time = temp_wait_time
 
 func double_jump_enabled():
-	character_movement.jump_amount = 2
+	character_movement.base_jump_amount = 2
 
 #func _process(delta):
 	#print(character_movement.speed, character_movement.max_speed)
