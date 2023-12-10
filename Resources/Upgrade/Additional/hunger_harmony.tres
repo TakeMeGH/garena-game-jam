@@ -8,5 +8,5 @@ id = "hunger_harmony"
 name = "Hunger Harmony"
 description = "savor the feast, a multiplier’s grace"
 effect = "\"multiplies 1.5x hunger points can a food restore\""
-icon_path = "res://Assets/icon.svg"
+icon_path = "res://Assets/UI/Icons/Group 7.png"
 cost = 2

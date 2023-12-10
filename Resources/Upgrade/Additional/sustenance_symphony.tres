@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_mnwch"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_mnwch")
 id = "sustenance_symphony"
 name = "Sustenance Symphony"
 description = "Expand your hunger, an enduring plea"
 effect = "\"Increase maximum hunger points by 1\"
 "
-icon_path = "res://Assets/icon.svg"
+icon_path = "res://Assets/UI/Icons/Group 4.png"
 cost = 2

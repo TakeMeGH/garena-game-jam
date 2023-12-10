@@ -8,5 +8,5 @@ id = "swift_strides"
 name = "Swift Strides"
 description = "Increase your pace, a nimble dance"
 effect = "\"Increasing player’s movement speed by\""
-icon_path = "res://Assets/icon.svg"
+icon_path = "res://Assets/main_chara/dash.png"
 cost = 1
