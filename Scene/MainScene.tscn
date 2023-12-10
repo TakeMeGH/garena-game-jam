@@ -53,7 +53,6 @@ dash_speed = 100
 [node name="flying" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ctr7e")]
 position = Vector2(-1380, -412)
 player = NodePath("../MainCharacter")
-speed = 800.0
 
 [node name="landmine_enemy" parent="." instance=ExtResource("7_h2apq")]
 position = Vector2(1054, 167)

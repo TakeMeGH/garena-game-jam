@@ -116,6 +116,7 @@ jump = 1300
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 scale = Vector2(4.88, 1)
 offset = Vector2(0, -400)
+zoom = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(1, 0)
