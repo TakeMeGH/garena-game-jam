@@ -8,5 +8,6 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact(body):
-	emit_signal("food_interact")
-	queue_free()
+	if body.is_in_group("player"):
+		emit_signal("food_interact")
+		queue_free()

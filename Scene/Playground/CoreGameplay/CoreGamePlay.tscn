@@ -593,7 +593,7 @@ centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-1520, -26)
-motion_mirroring = Vector2(3000, 0)
+motion_mirroring = Vector2(4000, 0)
 
 [node name="Scenery2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(217, 445)
