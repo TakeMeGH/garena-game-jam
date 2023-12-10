@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cc633iggj0k4j" path="res://Scene/Prefab/dash_pad.tscn" id="13_b341k"]
 [ext_resource type="Texture2D" uid="uid://bn14u7k4hse6j" path="res://Assets/bg/tilemap.png" id="15_wif6p"]
 [ext_resource type="Texture2D" uid="uid://cu16fljauegmq" path="res://Assets/tilemapv2.png" id="16_cq0y2"]
-[ext_resource type="PackedScene" uid="uid://btl2io8ub2xd8" path="res://Scene/Spawner/enemy_spawner.tscn" id="17_c1ipq"]
+[ext_resource type="PackedScene" path="res://Scene/Spawner/enemy_spawner.tscn" id="17_c1ipq"]
 [ext_resource type="Texture2D" uid="uid://bxtxgymr83wi4" path="res://Assets/parallux/background.png" id="19_4q21q"]
 [ext_resource type="Texture2D" uid="uid://fs60xe2e4ohn" path="res://Assets/parallux/scenery.png" id="20_oq4d4"]
 [ext_resource type="Texture2D" uid="uid://r5hh4wxqqdvr" path="res://Assets/parallux/tirai.png" id="24_1q0jb"]
@@ -596,7 +596,7 @@ position = Vector2(-1520, -26)
 motion_mirroring = Vector2(4000, 0)
 
 [node name="Scenery2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1844, 445)
+position = Vector2(217, 445)
 scale = Vector2(1.23096, 1.23096)
 texture = ExtResource("20_oq4d4")
 region_enabled = true
