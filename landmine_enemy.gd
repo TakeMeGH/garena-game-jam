@@ -5,6 +5,7 @@ var sprite : Sprite2D
 @export var push_force = 800
 var enable : bool = false
 @onready var anim : AnimationPlayer = $RigidBody2D/AnimationPlayer
+@onready var sound = $ExplodeSound
 
 func _ready():
 	area = get_child(0).get_child(2)
@@ -22,5 +23,6 @@ func _physics_process(delta):
 		surprise()
 		
 func surprise():
+	sound.play()
 	await get_tree().create_timer(1.6).timeout
 	get_parent().remove_child(self)

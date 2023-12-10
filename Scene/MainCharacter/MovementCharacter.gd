@@ -13,6 +13,8 @@ var dash_amount = 1
 var can_move : bool = true
 var sliding : bool = false
 
+@onready var jump_sound = $JumpSound
+
 func get_input(delta):
 
 	var input_direction = Input.get_axis("left", "right")
@@ -58,6 +60,7 @@ func moving(delta):
 		velocity.y = -jump
 		velocity.x = Input.get_axis("left", "right") * speed
 		jump_amount -= 1
+		jump_sound.play()
 
 	curr_speed = min(curr_speed, max_speed)
 	curr_speed = max(curr_speed, -max_speed)
@@ -66,6 +69,7 @@ func moving(delta):
 
 func force_jump(jump_force):
 	velocity.y = -jump_force * jump
+	jump_sound.play()
 
 func force_dash(dash_force):
 	if(curr_speed != 0):
