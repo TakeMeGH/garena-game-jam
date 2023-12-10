@@ -65,6 +65,7 @@ func _sleep_interact_in():
 	main_character.character_movement.slow_down()
 	main_character.hungry_timer.paused = true
 
+
 func _sleep_interact_out():
 	main_character.hungry_timer.paused = false
 	main_character.enable_input(true)
@@ -84,7 +85,7 @@ func on_upgrade_selected(upgrade : AbilityUpgrade):
 	main_character = player.instantiate()
 	backup_camera.enabled = false
 	add_child(main_character)
-	
+	TownHall.reset_level()
 	main_character.start_hungry_timer()
 	main_character.hungry_timer_timeout.connect(_on_main_character_hungry_timer_timeout)
 	

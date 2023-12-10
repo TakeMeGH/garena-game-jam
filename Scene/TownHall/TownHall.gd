@@ -20,4 +20,6 @@ func pay(money : int):
 func upgrade():
 	Gold.gold -= get_level_cost()
 	current_level += 1
-	
+
+func reset_level():
+	TownHall.current_level = 1

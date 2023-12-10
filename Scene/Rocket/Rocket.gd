@@ -10,4 +10,6 @@ func _process(delta):
 		rocket_sprite.texture = load(path)
 		print("kepangil", path)
 		current_level = TownHall.current_level - 2
-		
+		rocket_sprite.show()
+	if(TownHall.current_level <= 1):
+		rocket_sprite.hide()

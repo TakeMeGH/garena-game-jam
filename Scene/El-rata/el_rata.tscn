@@ -24,5 +24,15 @@ position = Vector2(-6, -67)
 scale = Vector2(7.35816, -5.34322)
 shape = SubResource("CircleShape2D_t4h8k")
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -229.0
+offset_top = -240.0
+offset_right = 260.0
+offset_bottom = -168.0
+theme_override_font_sizes/font_size = 35
+text = "[F] To Build Rocket : "
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

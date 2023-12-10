@@ -88,6 +88,7 @@ scale = Vector2(0.535, 0.535)
 texture = ExtResource("2_61qvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visibility_layer = 4
 shape = SubResource("RectangleShape2D_78oae")
 
 [node name="spawn_point" type="Node2D" parent="CharacterBody2D"]

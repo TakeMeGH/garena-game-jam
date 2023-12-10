@@ -20,6 +20,7 @@ func set_main_character(new_main_character):
 	main_character = new_main_character
 
 func reset():
+	print(upgraded_data)
 	for ability_id in upgraded_data:
 		var count = upgraded_data[ability_id]
 		

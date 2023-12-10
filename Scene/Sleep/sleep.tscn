@@ -80,5 +80,15 @@ color = Color(0, 0, 0, 1)
 position = Vector2(0, -236)
 texture = ExtResource("4_u2gpt")
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -176.0
+offset_top = -404.0
+offset_right = 196.0
+offset_bottom = -291.0
+theme_override_font_sizes/font_size = 70
+text = "text_label"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

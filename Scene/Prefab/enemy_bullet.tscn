@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkmdorreyamq0"]
 
 [ext_resource type="Script" path="res://enemy_bullet.gd" id="1_w1245"]
-[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="2_uhl05"]
+[ext_resource type="Texture2D" uid="uid://dkvgm5lmyaep4" path="res://Assets/bullet/hearts_0006.png" id="2_vuj4b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwfk1"]
 radius = 65.0077
@@ -14,7 +14,7 @@ scale = Vector2(0.3, 0.3)
 collision_layer = 16
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("2_uhl05")
+texture = ExtResource("2_vuj4b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_hwfk1")

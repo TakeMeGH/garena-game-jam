@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var curr_speed : float= 0
 var speed_lerp : float = 0
-var jump_amount = 2
+var jump_amount = 1
 var dash_amount = 1
 var can_move : bool = true
 var sliding : bool = false
