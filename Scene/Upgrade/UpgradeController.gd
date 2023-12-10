@@ -33,7 +33,7 @@ func reset():
 		elif(ability_id == "aerial_ballet"):
 			main_character.double_jump_enabled()
 		elif(ability_id == "gold_revelry"):
-			Gold.multiplier_gold *= 1.5
+			Gold.multiplier_gold *= 1.25
 		elif(ability_id == "hunger_harmony"):
 			CoreGamePlay.hungry_multiplier *= 1.5
 		elif(ability_id == "sustenance_symphony"):

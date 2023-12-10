@@ -4,6 +4,6 @@
 
 [node name="Rocket" type="Node2D"]
 script = ExtResource("1_pg1en")
-load_path = Array[String](["\"res://Assets/Ship/1.png\"", "\"res://Assets/Ship/2.png\"", "\"res://Assets/Ship/3.png\"", "\"res://Assets/Ship/4.png\"", "\"res://Assets/Ship/5.png\""])
+load_path = Array[String](["\"res://Assets/Ship/1.png\"", "\"res://Assets/Ship/2.png\"", "\"res://Assets/Ship/3.png\"", "\"res://Assets/Ship/4.png\"", "\"res://Assets/Ship/5.png\"", "\"res://Assets/Ship/5.png\""])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

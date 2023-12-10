@@ -16,9 +16,9 @@ func is_upgrade_available(money : int):
 func pay(money : int):
 	if(is_upgrade_available(money)):
 		upgrade()
-		if(TownHall.current_level == 1):
+		if(current_level == 6):
 			get_tree().change_scene_to_file("res://Scene/MainMenuUI.tscn")
-			TownHall.reset_level()
+			reset_level()
 
 
 func upgrade():

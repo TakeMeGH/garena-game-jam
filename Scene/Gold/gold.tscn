@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://rns4v30aivl6"]
 
 [ext_resource type="Script" path="res://Scene/Gold/gold.gd" id="1_tolya"]
-[ext_resource type="Texture2D" uid="uid://bh7bjxydv744p" path="res://Assets/ore_gold.png" id="2_gaqoy"]
+[ext_resource type="Texture2D" uid="uid://brtyim6q0r88m" path="res://Assets/Gold.png" id="2_hjgiv"]
 [ext_resource type="PackedScene" uid="uid://c13ooui5tsud4" path="res://Scene/Interaction/interaction_area.tscn" id="3_tha11"]
 [ext_resource type="AudioStream" uid="uid://j8cddbpdn014" path="res://Assets/Audio/SFX/GameObject picked/MENU A_Select.wav" id="4_t2rjp"]
 
@@ -12,7 +12,7 @@ radius = 38.0132
 script = ExtResource("1_tolya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gaqoy")
+texture = ExtResource("2_hjgiv")
 
 [node name="interaction_area" parent="." instance=ExtResource("3_tha11")]
 
