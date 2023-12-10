@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://cw85saaksuhov"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cw85saaksuhov"]
 
-[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_23laf"]
 [ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_pl001"]
 
 [resource]
@@ -9,5 +8,5 @@ id = "dreamy_digestion"
 name = "Dreamy Digestion"
 description = "Awake from slumber, hunger light"
 effect = "\"Reduce hunger effects after player woke up\""
-icon = ExtResource("1_23laf")
+icon_path = "res://Assets/icon.svg"
 cost = 1
