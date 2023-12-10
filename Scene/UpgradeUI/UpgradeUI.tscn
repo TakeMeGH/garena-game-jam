@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8prgmi5kj2n7"]
+[gd_scene load_steps=5 format=3 uid="uid://8prgmi5kj2n7"]
 
 [ext_resource type="PackedScene" uid="uid://d3wqq5ve315vu" path="res://Scene/UpgradeUI/UpgradeCard.tscn" id="1_5tpph"]
 [ext_resource type="Script" path="res://Scene/UpgradeUI/UpgradeUI.gd" id="1_uyeuj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bknya"]
+
+[sub_resource type="Theme" id="Theme_b0nbv"]
 
 [node name="UpgradeUI" type="CanvasLayer" node_paths=PackedStringArray("first_panel", "second_panel", "third_panel")]
 script = ExtResource("1_uyeuj")
@@ -52,14 +56,17 @@ anchor_bottom = 1.0
 offset_left = -128.0
 offset_top = -120.0
 offset_right = 128.0
-offset_bottom = -80.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_bknya")
 
 [node name="Button" type="Button" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = SubResource("Theme_b0nbv")
 theme_override_font_sizes/font_size = 50
 text = "Continue"
 

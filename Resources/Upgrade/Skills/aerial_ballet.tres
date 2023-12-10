@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://cukwly0pxhjv2"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cukwly0pxhjv2"]
 
 [ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_at0ln"]
-[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_ikajn"]
 
 [resource]
 script = ExtResource("1_at0ln")
@@ -9,5 +8,5 @@ id = "aerial_ballet"
 name = "Aerial Ballet"
 description = "Defy gravity, in the air you soar"
 effect = "\"Enabling player’s ability to jump in the air\""
-icon = ExtResource("1_ikajn")
+icon_path = "res://Assets/icon.svg"
 cost = 5

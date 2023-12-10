@@ -14,8 +14,7 @@ func _ready():
 	pass # Replace with function body.
 
 func set_info(info : AbilityUpgrade):
-	#var test_preload = preload("res://Assets/icon.svg")
-	#icon.texture = test_preload
+	icon.texture = load(info.icon_path)
 	nama.text = info.name
 	description.text = info.description
 	effect.text = info.effect

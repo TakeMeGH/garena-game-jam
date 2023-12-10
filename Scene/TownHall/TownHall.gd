@@ -18,7 +18,7 @@ func is_upgrade_available(money : int):
 func pay(money : int):
 	if(is_upgrade_available(money)):
 		upgrade()
-		if(current_level == 6):
+		if(current_level == 1):
 			emit_signal("end_game")
 #			get_tree().change_scene_to_file("res://Scene/FinishUI/finishUI.tscn")
 #			reset_level()
