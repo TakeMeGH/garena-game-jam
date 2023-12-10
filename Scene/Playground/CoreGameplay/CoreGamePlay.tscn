@@ -140,7 +140,7 @@ hungry_max_value = 10.0
 player = ExtResource("1_pikh1")
 
 [node name="BackupCamera" type="Camera2D" parent="."]
-position = Vector2(1552, 1208)
+position = Vector2(-204, 376)
 scale = Vector2(4.88, 1)
 enabled = false
 zoom = Vector2(0.5, 0.5)

@@ -29,7 +29,7 @@ var base_sleep = hungry_reduction_after_sleep
 var rng = RandomNumberGenerator.new()
 const number_of_spawned_object = 10
 
-
+var move_rocket = false
 
 func _ready():
 	game_music_player.play()
@@ -46,6 +46,12 @@ func _ready():
 
 func  _process(delta):
 	update_progress_bar()
+	if(move_rocket):
+		rocket.global_position -= Vector2(0, delta*800)
+		if(rocket.global_position.y > 1920):
+			get_tree().change_scene_to_file("res://Scene/FinishUI/finishUI.tscn")
+			move_rocket = false
+			
 
 func _on_main_character_hungry_timer_timeout():
 	backup_camera.global_position = get_tree().get_nodes_in_group("player")[0].get_child(0).global_position
@@ -129,4 +135,7 @@ func reset_resource():
 	
 func do_end_game_things():
 	rocket.animation_player.play("TERBANG")
+	move_rocket = true;
+	backup_camera.enabled = true
+	main_character.queue_free()
 	print("WOY")
