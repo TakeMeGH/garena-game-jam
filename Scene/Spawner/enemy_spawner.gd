@@ -2,7 +2,7 @@ extends Node2D
 class_name EnemySpawner
 
 @export var enemy_list : Array[PackedScene]
-@export var position_list : Array[Node2D]
+var position_list : Array[Node2D]
 
 var rng = RandomNumberGenerator.new()
 var avail_position = []
@@ -11,6 +11,10 @@ signal got_food
 
 func _ready():
 	reset_spanwer()
+	var location_enemy = $"../PositionsEnemy"
+	for _i in location_enemy.get_children():
+		position_list.append(_i)
+
 		
 func spawn_enemy(number_of_enemy):
 	for i in range(number_of_enemy):

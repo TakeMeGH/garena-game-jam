@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 var curr_speed : float= 0
 var speed_lerp : float = 0
+var base_jump_amount = 1
 var jump_amount = 1
 var dash_amount = 1
 var can_move : bool = true
@@ -49,7 +50,7 @@ func moving(delta):
 		if velocity.y > 1000:
 			velocity.y = 1000
 	else:
-		jump_amount = 2
+		jump_amount = base_jump_amount
 		dash_amount = 1
 
 	if Input.is_action_pressed("slide"):

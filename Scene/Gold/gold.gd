@@ -9,6 +9,7 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact(body):
-	pickup_sound.play()
-	Gold.add_gold()
-	queue_free()
+	if body.is_in_group("player"):
+		pickup_sound.play()
+		Gold.add_gold()
+		queue_free()
