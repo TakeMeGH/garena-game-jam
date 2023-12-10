@@ -14,18 +14,15 @@ func _process(delta):
 	pass
 	
 func on_upgrade(updated_data : Dictionary):
-	print("UPDATED DATA", updated_data)
 	upgraded_data = updated_data
 
 func set_main_character(new_main_character):
 	main_character = new_main_character
 
 func reset():
-	print(upgraded_data, "UPGRADED_DATA")
 	for ability_id in upgraded_data:
 		var count = upgraded_data[ability_id]
 		
-		print(ability_id, "ABILITY_ID")
 		if(ability_id == "dreamy_digestion"):
 			CoreGamePlay.dream_upgrade(count)
 		elif(ability_id == "satiety_serenade"):

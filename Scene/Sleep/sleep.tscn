@@ -3,11 +3,10 @@
 [ext_resource type="Script" path="res://Scene/Sleep/sleep.gd" id="1_aldvy"]
 [ext_resource type="Script" path="res://Scene/Sleep/scene_transition.gd" id="1_ocdql"]
 [ext_resource type="PackedScene" uid="uid://c13ooui5tsud4" path="res://Scene/Interaction/interaction_area.tscn" id="2_mnpf7"]
-[ext_resource type="Texture2D" uid="uid://c6m0lkfschqae" path="res://Assets/boat.png" id="4_q6lg6"]
+[ext_resource type="Texture2D" uid="uid://pguo034ybpi1" path="res://Assets/bed.png" id="4_u2gpt"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mp23f"]
-radius = 48.0
-height = 96.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe4e8"]
+size = Vector2(21.0707, 48.365)
 
 [sub_resource type="Animation" id="Animation_x388k"]
 resource_name = "RESET"
@@ -53,7 +52,10 @@ script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
 visibility_layer = 2
-shape = SubResource("CapsuleShape2D_mp23f")
+position = Vector2(0.500004, -117.5)
+rotation = -3.14159
+scale = Vector2(27.7637, -5.80999)
+shape = SubResource("RectangleShape2D_oe4e8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_ocdql")
@@ -75,7 +77,8 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_q6lg6")
+position = Vector2(0, -236)
+texture = ExtResource("4_u2gpt")
 
 [connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

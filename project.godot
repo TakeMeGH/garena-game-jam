@@ -17,11 +17,13 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 Gold="*res://Autoload/Gold/gold.tscn"
+TownHall="*res://Scene/TownHall/TownHall.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 
 [dotnet]
 

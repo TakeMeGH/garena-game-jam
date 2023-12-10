@@ -48,6 +48,8 @@ func _on_main_character_hungry_timer_timeout():
 	reset_resource()
 
 func _on_spawner_got_food():
+	if(main_character == null):
+		return
 	main_character.add_hungry_timer(get_hungry_value())
 	
 func get_hungry_value():
