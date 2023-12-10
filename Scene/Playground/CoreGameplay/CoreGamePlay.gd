@@ -25,7 +25,7 @@ var base_sleep = hungry_reduction_after_sleep
 @onready var game_music_player = $GameMusicPlayer
 @onready var sleep_music_player = $SleepMusicPlayer
 @onready var lose_music_player = $LoseMusicPlayer
-
+@onready var rocket = $Rocket
 var rng = RandomNumberGenerator.new()
 const number_of_spawned_object = 10
 
@@ -128,4 +128,5 @@ func reset_resource():
 	spawner.spawn_gold(2*number_of_spawned_object)
 	
 func do_end_game_things():
-	pass
+	rocket.animation_player.play("TERBANG")
+	print("WOY")

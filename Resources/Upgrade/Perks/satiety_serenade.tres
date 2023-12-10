@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://d1wvnfrqub5vs"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://d1wvnfrqub5vs"]
 
-[ext_resource type="Texture2D" uid="uid://ciu37b2axnfuj" path="res://Assets/icon.svg" id="1_8lta4"]
 [ext_resource type="Script" path="res://Resources/Upgrade/ability_upgrade.gd" id="1_cgb4o"]
 
 [resource]
@@ -9,5 +8,5 @@ id = "satiety_serenade"
 name = "Satiety Serenade"
 description = "Hunger’s grasp, a gentle sway"
 effect = "\"Player can maintain hunger level longer\""
-icon = ExtResource("1_8lta4")
+icon_path = "res://Assets/icon.svg"
 cost = 1
