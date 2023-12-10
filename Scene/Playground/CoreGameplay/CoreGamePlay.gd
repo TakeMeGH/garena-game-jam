@@ -27,6 +27,7 @@ var base_sleep = hungry_reduction_after_sleep
 @onready var lose_music_player = $LoseMusicPlayer
 
 var rng = RandomNumberGenerator.new()
+const number_of_spawned_object = 10
 
 func _ready():
 	game_music_player.play()
