@@ -29,6 +29,8 @@ var base_sleep = hungry_reduction_after_sleep
 var rng = RandomNumberGenerator.new()
 const number_of_spawned_object = 10
 
+
+
 func _ready():
 	game_music_player.play()
 	sleep.sleep_interact_in.connect(_sleep_interact_in)
@@ -37,7 +39,7 @@ func _ready():
 	
 	main_character.start_hungry_timer(hungry_max_value) # start and set
 	main_character.hungry_timer_timeout.connect(_on_main_character_hungry_timer_timeout)
-	
+	TownHall.end_game.connect(do_end_game_things)
 	reset_resource()
 	
 	upgrade_ui.upgrade_selected.connect(on_upgrade_selected)
@@ -124,3 +126,6 @@ func reset_resource():
 	spawner.reset_spanwer()
 	spawner.spawn_food(2*number_of_spawned_object)
 	spawner.spawn_gold(2*number_of_spawned_object)
+	
+func do_end_game_things():
+	pass
