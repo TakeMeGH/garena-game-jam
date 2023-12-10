@@ -9,5 +9,5 @@ name = "Sustenance Symphony"
 description = "Expand your hunger, an enduring plea"
 effect = "\"Increase maximum hunger points by 1\"
 "
-icon_path = "res://Assets/icon.svg"
+icon_path = "res://Assets\\UI\\Icons\\Group 4"
 cost = 2
